@@ -1,16 +1,16 @@
 package com.company;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String n = sc.next();
-        char[] mas = n.toCharArray();
-        System.out.println((int)mas[0]);
-        for (int i = mas[0]; i < mas[0]+mas[1]-48;i++){
-            System.out.print((char)i);
-        }
+        JFrame frame = new JFrame("JustGame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
+        frame.add(new Display(frame));
+        frame.setVisible(true);
     }
 }
