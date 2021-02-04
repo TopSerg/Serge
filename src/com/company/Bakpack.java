@@ -28,11 +28,9 @@ class Bakpack{
     public void paint(Graphics g){
         g.drawImage(inv, 210, yi, 1000, 500,null);
         for (int i = 0; i < 20; i++){
-            if (mas[i] != null){
-                g.drawImage(mas[i], 880+65*i,yi+277, 30*40/50, 40, null);
-                if (items[i].isminus && !items[i].isget){
-                    g.drawImage(mas[i], mouse1.getx1(), mouse1.gety1(), items[i].wight, items[i].high, null);
-                }
+            if (items[i] != null){
+                //g.drawImage(mas[i], 880+65*i,yi+277, 30*40/50, 40, null);
+                items[i].paint(g,880+65*i,yi+277, 30*40/50, 40);
             }
 //            else{
 //                break;

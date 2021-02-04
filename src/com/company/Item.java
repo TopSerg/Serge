@@ -38,8 +38,16 @@ class Item{
         if (!find){
             g.drawImage(item, x, y, wight, high, null);
         }
+        if (isminus){
+            g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
+        }
+    }
+    public void paint(Graphics g, int x, int y, int wight, int high){
+        if (find) {
+            g.drawImage(item, x, y, wight, high, null);
+        }
         //if (isminus&&!isget){
-          //  g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
+        //  g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
         //}
     }
 

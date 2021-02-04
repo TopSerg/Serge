@@ -61,6 +61,9 @@ public class Level {
             }
         }
         //g.drawImage(player.getPlayer(), x, y, player.getHigh(), player.getWidth(), null);
+//        for (int i = 0; i < stena.length; i++){
+//            int k =
+//        }
         player.move(mouse.getx(), mouse.gety());
         player.paint(g);
         paintf(g);

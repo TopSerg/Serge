@@ -212,7 +212,7 @@ class Display extends JPanel implements ActionListener{
         //gnom1.move(mouse.getx(), mouse.gety());
 //        move.div();
         bakpack.move(xm1, ym1);
-
+        bakpack.minus();
         if (xm > 870 && ym > 470 && bakpack.invop){
         }
         else{
