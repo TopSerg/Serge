@@ -7,9 +7,9 @@ import javax.swing.*;
 
 class Display extends JPanel implements ActionListener{
 
-    Image gnom = new ImageIcon("C:\\Users\\Serge\\Pictures\\gnom.png").getImage();
-    Image bigdick = new ImageIcon("C:\\Users\\Serge\\Pictures\\2.png").getImage();
-    Image inv = new ImageIcon("C:\\Users\\Serge\\Pictures\\Invent.png").getImage();
+    Image gnom = new ImageIcon("gnom.png").getImage();
+    Image bigdick = new ImageIcon("2.png").getImage();
+    Image inv = new ImageIcon("Invent.png").getImage();
 
     Player gnom1;
 
@@ -49,12 +49,12 @@ class Display extends JPanel implements ActionListener{
         stena1[2] = new int[]{333, 457, 383, 0};
         stena1[3] = new int[]{745, 745, 383, 0};
         bakpack = new Bakpack(frame, mouse, mouse1);
-        gnom1 = new Player("C:\\Users\\Serge\\Pictures\\gnom.png", x1, y1, 40+y1/15*40/100, y1/15+100, move);
-        item1 = new Item("C:\\Users\\Serge\\Pictures\\l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
-        item2 = new Item("C:\\Users\\Serge\\Pictures\\l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
-        lvl1 = new Level("C:\\Users\\Serge\\Pictures\\fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
+        gnom1 = new Player("gnom.png", x1, y1, 40+y1/15*40/100, y1/15+100, move);
+        item1 = new Item("l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
+        item2 = new Item("l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
+        lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl1.plusitem(item1);
-        lvl2 = new Level("C:\\Users\\Serge\\Pictures\\fon21.png", "C:\\Users\\Serge\\Pictures\\fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
+        lvl2 = new Level("fon21.png", "fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl2.plusitem(item2);
     }
 

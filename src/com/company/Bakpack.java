@@ -7,7 +7,7 @@ import javax.swing.*;
 
 class Bakpack{
 
-    Image inv = new ImageIcon("C:\\Users\\Serge\\Pictures\\Invent.png").getImage();
+    Image inv = new ImageIcon("Invent.png").getImage();
 
     JFrame frame;
     Mouse1 mouse1;
@@ -26,11 +26,11 @@ class Bakpack{
     }
 
     public void paint(Graphics g){
-        g.drawImage(inv, 210, yi, 1000, 500,null);
+        g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
         for (int i = 0; i < 20; i++){
             if (items[i] != null){
                 //g.drawImage(mas[i], 880+65*i,yi+277, 30*40/50, 40, null);
-                items[i].paint(g,880+65*i,yi+277, 30*40/50, 40);
+                items[i].paint(g,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+yi, 30*40/50, 40);
             }
 //            else{
 //                break;
@@ -39,7 +39,7 @@ class Bakpack{
     }
 
     public void move(int xm1, int ym1){
-        if (xm1 > 870 && ym1 > 650&&yi > 200){
+        if (xm1 > frame.getWidth()-340 && ym1 > frame.getHeight()-446+yi&&yi > 200){
             a = true;
         }
         if (a){
@@ -49,7 +49,7 @@ class Bakpack{
             a = false;
             invop = true;
         }
-        if (invop && (xm1 < 870 || ym1 < 470)){
+        if (invop && (xm1 < frame.getWidth()-340 || ym1 < frame.getHeight()-446+yi)){
             yi += 15;
         }
         if (yi > 380){
