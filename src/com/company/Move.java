@@ -4,8 +4,6 @@ import java.awt.*;
 
 public class Move {
     int level = 1, x1 = 0, y1 = 0, dx, dy, divx, divy, speed;
-    float xdiv, ydiv, k;
-    boolean a = true;
     Mouse mouse;
 
 
@@ -48,60 +46,30 @@ public class Move {
         if (dx != 0 && dy != 0){
             divx = dx;
             divy = dy;
-//            k = divy/divx;
-        }
-        if (divx != 0 && divy != 0){
-            if (Math.abs(divy) > Math.abs(divx)){
-                k = divx/divy;
-                a = false;
-            }
-            else{
-                k = divy/divx;
-                a = true;
-            }
         }
         if (divx != 0){
-            //System.out.print(speed*divx/Math.abs(divx) + "   ___x__    ");
-            if ((divx-speed*divx/Math.abs(divx))*divx/Math.abs(divx) <= 0){
+            mov(speed*divx/Math.abs(divx),0);
+
+            if ((divx-speed*divx/Math.abs(divx))*divx/Math.abs(divx) < 0){
                 divx = 0;
-                dx = 0;
-                xdiv = 0;
             }
             else {
-                if (!a){
-                    xdiv = k*ydiv;
-                    divx -= k*divy;
-                }
-                else{
-                    xdiv = speed*divx/Math.abs(divx);
-                    divx -= speed*divx/Math.abs(divx);}
+                divx -= speed*divx/Math.abs(divx);
             }
-
         }
         if (divy != 0){
-            //System.out.print(speed*divy/Math.abs(divy) + "   ___y___   ");
-            if ((divy-speed*divy/Math.abs(divy))*divy/Math.abs(divy) <= 0){
+            mov(0,speed*divy/Math.abs(divy));
+            if ((divy-speed*divy/Math.abs(divy))*divy/Math.abs(divy) < 0){
                 divy = 0;
-                dy = 0;
-                ydiv = 0;
             }
             else {
-                if (a){
-                    ydiv = k*xdiv;
-                    divy -= k*divx;
-                }
-                else{
-                    ydiv = speed*divy/Math.abs(divy);
-                    divy -= speed*divy/Math.abs(divy);
-                }
-//                ydiv = k*xdiv;
-//                divy -= k*divx;
+                divy -= speed*divy/Math.abs(divy);
             }
         }
-        mov((int)xdiv, (int)ydiv);
     }
 
     public void move1(int x, int y){
+        //for (int i = 0; i < )
 //        if (y1 < 390 && (x1 < 333 || x1 > 745)){
 //            x1 += x;
 //            y1 = 390;

@@ -48,7 +48,7 @@ public class Level {
 
     }
 
-    public void paintb(Graphics g, int x1,int y1, int x, int y){
+    public void paintb(Graphics g, int x1,int y1){
         g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), null);
         for (int i = 0; i < 5; i++){
             if (items[i] != null) {
@@ -61,9 +61,25 @@ public class Level {
             }
         }
         //g.drawImage(player.getPlayer(), x, y, player.getHigh(), player.getWidth(), null);
-//        for (int i = 0; i < stena.length; i++){
-//            int k =
-//        }
+        int mx = mouse.getx(), my = mouse.gety(), x = player.x, y = player.y,  b1, b2, xp, yp;
+        double k1 = 1, k2 = 1;
+        for (int i = 0; i < stena.length; i++){
+            if (mx > stena[i][0] && mx < stena[i][1]){
+                if (mx != x){
+                    k2 = (double)(my-y)/(double)(mx-x);
+                }
+                if (stena[i][1]-stena[i][0] != 0){
+                    k1 = (double)(stena[i][3]-stena[i][2])/(double)(stena[i][1]-stena[i][0]);
+                }
+                b1 = stena[i][2];
+                b2 = (int)(k2*stena[i][2]);
+                xp = (int)((b2-b1)/(k1-k2));
+                yp = (int)(k1*xp) + b1;
+                if ((mx-xp)*(x-xp) < 0){
+
+                }
+            }
+        }
         player.move(mouse.getx(), mouse.gety());
         player.paint(g);
         paintf(g);

@@ -49,7 +49,7 @@ class Display extends JPanel implements ActionListener{
         stena1[2] = new int[]{333, 457, 383, 0};
         stena1[3] = new int[]{745, 745, 383, 0};
         bakpack = new Bakpack(frame, mouse, mouse1);
-        gnom1 = new Player("gnom.png", x1, y1, 40+y1/15*40/100, y1/15+100, move);
+        gnom1 = new Player("gnom.png", x1, y1,  frame.getHeight()/20/*+y1/15*40/10*/,frame.getWidth()/100, move);
         item1 = new Item("l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
         item2 = new Item("l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
@@ -174,10 +174,10 @@ class Display extends JPanel implements ActionListener{
         switch (level){
             case (1):
                 //lvl1(g);
-                lvl1.paintb(g, x1, y1, x1-(40+y1/15*40/100), y1-(y1/15+100));
+                lvl1.paintb(g, x1, y1);
                 break;
             case (2):
-                lvl2.paintb(g, x1, y1, x1-(40+y1/15*40/100), y1-(y1/15+100));
+                lvl2.paintb(g, x1, y1);
                 break;
         }
 //        g.drawImage(gnom,x1-(40+y1/15*40/100),y1-(y1/15+100),40+y1/15*40/100,y1/15+100,null);
@@ -202,7 +202,7 @@ class Display extends JPanel implements ActionListener{
         // TODO Auto-generated method stub
         dx = xm-x1;
         dy = ym-y1;
-        str = divx + " " + divy + " " + xm1 + " " + ym1 + " " + x1 + " " + y1 + " " + xd + " " + yd + " " + yi;
+        str = frame.getHeight() + " " + divy + " " + xm1 + " " + ym1 + " " + x1 + " " + y1 + " " + xd + " " + yd + " " + yi;
 
         find = find(xm, ym, xd, yd);
         //div();

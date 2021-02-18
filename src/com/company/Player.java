@@ -20,7 +20,7 @@ public class Player {
 
     public void paint(Graphics g){
         int[] a;
-        g.drawImage(player, x, y, high, width, null);
+        g.drawImage(player, x, y, width, high, null);
         a = move.getXY();
         x = a[0];
         y = a[1];
