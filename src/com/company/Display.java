@@ -49,11 +49,15 @@ class Display extends JPanel implements ActionListener{
         stena1[2] = new int[]{333, 457, 383, 0};
         stena1[3] = new int[]{745, 745, 383, 0};
         bakpack = new Bakpack(frame, mouse, mouse1);
-        gnom1 = new Player("gnom.png", x1, y1,  frame.getHeight()/20/*+y1/15*40/10*/,frame.getWidth()/100, move);
+        gnom1 = new Player("gnom.png", x1, y1,  /*frame.getHeight()/*/20/*+y1/15*40/10*/,/*frame.getWidth()/*/10, move);
+        System.out.println(this.frame.getHeight()/*+y1/15*40/10*/+ " " + this.frame.getWidth());
         item1 = new Item("l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
         item2 = new Item("l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
-        lvl1.plusitem(item1);
+        for (int i = 0; i < 15; i++){
+            lvl1.plusitem(item1);
+        }
+
         lvl2 = new Level("fon21.png", "fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl2.plusitem(item2);
     }

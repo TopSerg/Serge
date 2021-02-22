@@ -61,7 +61,7 @@ public class Level {
             }
         }
         //g.drawImage(player.getPlayer(), x, y, player.getHigh(), player.getWidth(), null);
-        int mx = mouse.getx(), my = mouse.gety(), x = player.x, y = player.y,  b1, b2, xp, yp;
+        int mx = mouse.getx(), my = mouse.gety(), x = player.x, y = player.y,  b1, b2, xp, yp, nx = 0, ny = 0, dx, dy;
         double k1 = 1, k2 = 1;
         for (int i = 0; i < stena.length; i++){
             if (mx > stena[i][0] && mx < stena[i][1]){
@@ -76,11 +76,14 @@ public class Level {
                 xp = (int)((b2-b1)/(k1-k2));
                 yp = (int)(k1*xp) + b1;
                 if ((mx-xp)*(x-xp) < 0){
-
+                    dx = (int)((k1*Math.abs(my + mx*k1))/Math.sqrt(1+k1*k1));
+                    dy = (int)(-dx/k1);
+                    nx = mx+dx;
+                    ny = dy+my;
                 }
             }
         }
-        player.move(mouse.getx(), mouse.gety());
+        player.move(nx, ny);
         player.paint(g);
         paintf(g);
     }
