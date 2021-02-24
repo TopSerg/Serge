@@ -28,7 +28,7 @@ class Bakpack{
     public void paint(Graphics g){
         g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
         for (int i = 0; i < 20; i++){
-            System.out.println(items[i] + " " + i/5);
+            //System.out.println(items[i] + " " + i/5);
             if (items[i] != null){
                 //g.drawImage(mas[i], 880+65*i,yi+277, 30*40/50, 40, null);
                 //items[i].paint(g,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+yi, 30*40/50, 40);
@@ -76,7 +76,7 @@ class Bakpack{
 
     public void minus(){
         for (int i = 0; i < 20; i++){
-            if (mouse.getx() > 880+65*i && mouse.getx() < 880+65*i+30*40/50 && mouse.gety() < yi+277 && mouse.gety() > yi+277+40 && invop){
+            if (mouse.getx(1) > 880+65*i && mouse.getx(1) < 880+65*i+30*40/50 && mouse.gety(1) < yi+277 && mouse.gety(1) > yi+277+40 && invop){
                 items[i].setIsminus();
                 items[i] = null;
                 mas[i] = null;

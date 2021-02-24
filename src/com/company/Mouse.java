@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 class Mouse extends Frame implements MouseListener{
 
-   int xm = 100, ym = 550;
+   int xm = 100, ym = 550, i = 0;
 
    public Mouse(){
 
@@ -15,6 +15,7 @@ class Mouse extends Frame implements MouseListener{
        //System.out.println("mouse pressed");
        this.xm = e.getX();
        this.ym = e.getY();
+       i = 0;
        //System.out.println(xm + " " + ym);
    }
    public void mouseReleased(MouseEvent e)
@@ -33,10 +34,22 @@ class Mouse extends Frame implements MouseListener{
    {
        //System.out.println("mouse Entered");
    }
-   public int getx(){
-       return xm;
+   public int getx(int a){
+//      if (i == 0) {
+//         i++;
+         return xm;
+//      }
+//      else{
+//         return 0;
+//      }
    }
-   public int gety(){
-       return ym;
+   public int gety(int a){
+//      if (i == 0) {
+//         i++;
+         return ym;
+//      }
+//      else{
+//         return 0;
+//      }
    }
 }
