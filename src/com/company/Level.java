@@ -76,7 +76,7 @@ public class Level {
                 b1 = stena[i][2];
                 b2 = my-(int)(k2*(mx-stena[i][2]));
                 xp = (int)((b2-b1)/(k1-k2));
-                g.drawLine(stena[i][0], b2, stena[i][1], (int)(stena[i][3]+stena[i][1]*k2));
+                g.drawLine(stena[i][0], b2, stena[i][1], (int)(b2+stena[i][1]*k2));
                 yp = (int)(k1*xp) + b1;
                 if ((mx-xp)*(x-xp) < 0){
                     dx = (int)((k1*Math.abs(my - mx*k1- b1))/Math.sqrt(1+k1*k1));
@@ -85,7 +85,6 @@ public class Level {
                     ny = dy+my;
                     a = true;
                 }
-
                 else{
                     nx = mx;
                     ny = my;
