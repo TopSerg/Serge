@@ -61,10 +61,11 @@ public class Level {
             }
         }
         //g.drawImage(player.getPlayer(), x, y, player.getHigh(), player.getWidth(), null);
-        int mx = mouse.getx(1), my = mouse.gety(1), x = player.x, y = player.y,  b1, b2, xp, yp, nx = 0, ny = 0, dx, dy;
+        int mx = mouse.getx(1), my = mouse.gety(1), x = player.x, y = player.y,  b1, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
         double k1 = 1, k2 = 1;
         boolean a = false;
         for (int i = 0; i < stena.length; i++){
+            g.drawLine(stena[i][0],stena[i][2],stena[i][1],stena[i][3]);
             if (mx > stena[i][0] && mx < stena[i][1]){
                 if (mx != x){
                     k2 = (double)(my-y)/(double)(mx-x);
@@ -74,15 +75,27 @@ public class Level {
                 }
 
                 b1 = stena[i][2];
-                b2 = my-(int)(k2*(mx-stena[i][2]));
+                b2 = (int)((double)(y*mx-my*x)/(double)(mx-x)) ;
                 xp = (int)((b2-b1)/(k1-k2));
                 g.drawLine(stena[i][0], b2, stena[i][1], (int)(b2+stena[i][1]*k2));
                 yp = (int)(k1*xp) + b1;
                 if ((mx-xp)*(x-xp) < 0){
-                    dx = (int)((k1*Math.abs(my - mx*k1- b1))/Math.sqrt(1+k1*k1));
-                    dy = (int)(-dx/k1);
-                    nx = mx+dx;
-                    ny = dy+my;
+                    dx = (int)((Math.abs(my - mx*k1- b1))/Math.sqrt(1+k1*k1));
+                    dy = (int)(-dx/k2);
+                    if (x < mx){
+                        nx = mx+dx;
+                    }
+                    else{
+                        nx = mx-dx;
+                    }
+                    if (y < my){
+                        ny = my-dy;
+                    }
+                    else{
+                        ny = my+dy;
+                    }
+                    //nx = mx+dx;
+                    //ny = dy+my;
                     a = true;
                 }
                 else{
@@ -90,7 +103,7 @@ public class Level {
                     ny = my;
                     a = true;
                 }
-                System.out.println(k1 + " " + k2 + " " + i + " " +b1 + " " + b2);
+                System.out.println(dx +" "+ dy+" "+Math.abs(my - mx*k1- b1)+" " + Math.sqrt(1+k1*k1));
             }
             if (!a){
                 nx = mx;

@@ -74,7 +74,7 @@ class Display extends JPanel implements ActionListener{
         if (find){
             g.drawImage(bigdick, xd, yd, 100, 100, null);
             i++;
-            if (i == 20){
+            if (i == 1){
                 find = false;
                 i = 0;
                 xd = (int)(Math.random()*1300);
