@@ -3,7 +3,8 @@ package com.company;
 import java.awt.*;
 
 public class Move {
-    int level = 1, x1 = 0, y1 = 0, dx, dy, divx, divy, speed;
+    int level = 1, x1 = 0, y1 = 0, dx, dy, divx, divy, speed, px, py;
+    int stena[][];
     double k, xdiv = 0, ydiv = 0;
     boolean a = true;
     Mouse mouse;
@@ -21,9 +22,62 @@ public class Move {
 //        dy = mouse.gety() - y1;
 //    }
 
-    public void moves(Player player){
+    public void moves(Player player, int[][] mas, int qx, int qy){
+        stena = mas;
         player.x = x1;
         player.y = y1;
+        int mx = qx, my = qy, x = x1, y = y1,  b1, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
+        double k1 = 1, k2 = 1;
+        boolean a = false;
+        for (int i = 0; i < stena.length; i++){
+            //g.drawLine(stena[i][0],stena[i][2],stena[i][1],stena[i][3]);
+            if (mx > stena[i][0] && mx < stena[i][1]){
+                if (mx != x){
+                    k2 = (double)(my-y)/(double)(mx-x);
+                }
+                if (stena[i][1]-stena[i][0] != 0){
+                    k1 = (double)(stena[i][3]-stena[i][2])/(double)(stena[i][1]-stena[i][0]);
+                }
+
+                b1 = stena[i][2];
+                b2 = (int)((double)(y*mx-my*x)/(double)(mx-x)) ;
+                xp = (int)((b2-b1)/(k1-k2));
+                //g.drawLine(stena[i][0], b2, stena[i][1], (int)(b2+stena[i][1]*k2));
+                yp = (int)(k1*xp) + b1;
+                if ((mx-xp)*(x-xp) < 0){
+                    dx = (int)((Math.abs(my - mx*k1- b1))/Math.sqrt(1+k1*k1));
+                    dy = (int)(-dx/k2);
+                    if (x < mx){
+                        nx = mx+dx;
+                    }
+                    else{
+                        nx = mx-dx;
+                    }
+                    if (y < my){
+                        ny = my-dy;
+                    }
+                    else{
+                        ny = my+dy;
+                    }
+                    //nx = mx+dx;
+                    //ny = dy+my;
+                    a = true;
+                }
+                else{
+                    nx = mx;
+                    ny = my;
+                    a = true;
+                }
+                System.out.println(dx +" "+ dy+" "+Math.abs(my - mx*k1- b1)+" " + Math.sqrt(1+k1*k1));
+            }
+            if (!a){
+                nx = mx;
+                ny = my;
+                a = true;
+            }
+            //System.out.println(i);
+        }
+        div(nx, ny);
     }
 
     public void moves(Item item){
@@ -32,14 +86,58 @@ public class Move {
     }
 
     public void mov(int x, int y){
-        switch (level){
-            case (1):
-                move1(x,y);
-                break;
-//            case (2):
-//                move2(x,y);
-//                break;
-        }
+//        int mx = mouse.getx(1), my = mouse.gety(1), x = x1, y = y1,  b1, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
+//        double k1 = 1, k2 = 1;
+//        boolean a = false;
+//        for (int i = 0; i < stena.length; i++){
+//            //g.drawLine(stena[i][0],stena[i][2],stena[i][1],stena[i][3]);
+//            if (mx > stena[i][0] && mx < stena[i][1]){
+//                if (mx != x){
+//                    k2 = (double)(my-y)/(double)(mx-x);
+//                }
+//                if (stena[i][1]-stena[i][0] != 0){
+//                    k1 = (double)(stena[i][3]-stena[i][2])/(double)(stena[i][1]-stena[i][0]);
+//                }
+//
+//                b1 = stena[i][2];
+//                b2 = (int)((double)(y*mx-my*x)/(double)(mx-x)) ;
+//                xp = (int)((b2-b1)/(k1-k2));
+//                //g.drawLine(stena[i][0], b2, stena[i][1], (int)(b2+stena[i][1]*k2));
+//                yp = (int)(k1*xp) + b1;
+//                if ((mx-xp)*(x-xp) < 0){
+//                    dx = (int)((Math.abs(my - mx*k1- b1))/Math.sqrt(1+k1*k1));
+//                    dy = (int)(-dx/k2);
+//                    if (x < mx){
+//                        nx = mx+dx;
+//                    }
+//                    else{
+//                        nx = mx-dx;
+//                    }
+//                    if (y < my){
+//                        ny = my-dy;
+//                    }
+//                    else{
+//                        ny = my+dy;
+//                    }
+//                    //nx = mx+dx;
+//                    //ny = dy+my;
+//                    a = true;
+//                }
+//                else{
+//                    nx = mx;
+//                    ny = my;
+//                    a = true;
+//                }
+//                System.out.println(dx +" "+ dy+" "+Math.abs(my - mx*k1- b1)+" " + Math.sqrt(1+k1*k1));
+//            }
+//            if (!a){
+//                nx = mx;
+//                ny = my;
+//                a = true;
+//            }
+//            //System.out.println(i);
+//        }
+        move1(x,y);
     }
 
     public void div(int x, int y){
@@ -103,30 +201,27 @@ public class Move {
     }
 
     public void move1(int x, int y){
-        //for (int i = 0; i < )
-//        if (y1 < 390 && (x1 < 333 || x1 > 745)){
-//            x1 += x;
-//            y1 = 390;
-//        }
-//        else if ((y1 < (-197*x1/65 + 89909/65)+40+y1/15*40/100)&&x1>330&&x1<457){
-//            x1 += x+40+y1/15*40/100;
-//            y1 = -197*x1/65 + 89909/65+y1/15+100;
-//        }
-//        else if (x1 > 705 && y1 < 380){
-//            y1 += y;
-//            x1 = 704;
-//        }
-//        else if (y1 < 30){
-//            level = 2;
-//            x1 = 760;
-//            y1 = 540;
-//            mouse.xm = 760;
-//            mouse.ym = 540;
-//        }
-        //else{
+        for (int i = 0; i < stena.length; i++) {
+            if (y1 < 390 && (x1 < 333 || x1 > 745)) {
+                x1 += x;
+                y1 = 390;
+            } else if ((y1 < (-197 * x1 / 65 + 89909 / 65) + 40 + y1 / 15 * 40 / 100) && x1 > 330 && x1 < 457) {
+                x1 += x + 40 + y1 / 15 * 40 / 100;
+                y1 = -197 * x1 / 65 + 89909 / 65 + y1 / 15 + 100;
+            } else if (x1 > 705 && y1 < 380) {
+                y1 += y;
+                x1 = 704;
+            } else if (y1 < 30) {
+                level = 2;
+                x1 = 760;
+                y1 = 540;
+                mouse.xm = 760;
+                mouse.ym = 540;
+            }
+            //else{
             x1 += x;
             y1 += y;
-        //}
+        }
     }
 
     public  int[] getXY(){

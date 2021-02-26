@@ -26,11 +26,11 @@ public class Player {
         y = a[1];
         //x = move.getXY()[0];
         //y = move.getXY()[1];
-        move.moves(this);
+        //move.moves(this);
     }
 
-    public void move (int dx, int dy){
-        move.div(dx, dy);
+    public void move (int dx, int dy, int mas[][]){
+        move.moves(this, mas, dx, dy);
     }
 
     //    public Image getPlayer(){
