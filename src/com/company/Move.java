@@ -68,7 +68,7 @@ public class Move {
                     ny = my;
                     a = true;
                 }
-                System.out.println(dx +" "+ dy+" "+Math.abs(my - mx*k1- b1)+" " + Math.sqrt(1+k1*k1));
+                //System.out.println(dx +" "+ dy+" "+Math.abs(my - mx*k1- b1)+" " + Math.sqrt(1+k1*k1));
             }
             if (!a){
                 nx = mx;
@@ -197,37 +197,48 @@ public class Move {
 //                divy -= k*divx;
             }
         }
-        mov((int)xdiv, (int)ydiv);
+        move1((int)xdiv, (int)ydiv);
     }
 
-    public void move1(int x, int y){
+    public void move1(int x, int y) {
+        int b1 = 0, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
+        double k1 = 1, k2 = 1;
         for (int i = 0; i < stena.length; i++) {
-            if (y1 < 390 && (x1 < 333 || x1 > 745)) {
-                x1 += x;
-                y1 = 390;
-            } else if ((y1 < (-197 * x1 / 65 + 89909 / 65) + 40 + y1 / 15 * 40 / 100) && x1 > 330 && x1 < 457) {
-                x1 += x + 40 + y1 / 15 * 40 / 100;
-                y1 = -197 * x1 / 65 + 89909 / 65 + y1 / 15 + 100;
-            } else if (x1 > 705 && y1 < 380) {
-                y1 += y;
-                x1 = 704;
-            } else if (y1 < 30) {
-                level = 2;
-                x1 = 760;
-                y1 = 540;
-                mouse.xm = 760;
-                mouse.ym = 540;
+            //System.out.println(x1 + " " + y1);
+            if (x1 + x > stena[i][0] && x1 + x < stena[i][1]) {
+                if (stena[i][1] - stena[i][0] != 0) {
+                    k1 = (double) (stena[i][3] - stena[i][2]) / (double) (stena[i][1] - stena[i][0]);
+                }
+                b1 = stena[i][2];
+                System.out.println(k1 + " " + b1 + " " + (y1 + y) +" "+ (k1 * (x1-stena[i][0]) + b1));
+                if (y1 + y < k1 * (x1-stena[i][0]) + b1) {
+                    y1 -= y;
+                    System.out.println(1);
+                }
+                if (y1 < k1 * ((x1-stena[i][0]) + x) + b1) {
+                    x1 -= x;
+                }
             }
-            //else{
+//                y1 += y;
+//                x1 = 704;
+//            } else if (y1 < 30) {
+//                level = 2;
+//                x1 = 760;
+//                y1 = 540;
+//                mouse.xm = 760;
+//                mouse.ym = 540;
+//            }
+                //else{
+
+            }
             x1 += x;
             y1 += y;
         }
-    }
 
-    public  int[] getXY(){
-        int[] ans = new int[2];
-        ans[0] = x1;
-        ans[1] = y1;
-        return ans;
+        public int[] getXY() {
+            int[] ans = new int[2];
+            ans[0] = x1;
+            ans[1] = y1;
+            return ans;
+        }
     }
-}
