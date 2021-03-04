@@ -34,6 +34,8 @@ class Display extends JPanel implements ActionListener{
     Level lvl1;
     Level lvl2;
 
+    Chel wizard;
+
 
     public Display(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         move = new Move(mouse, speed, x1, y1);
@@ -59,6 +61,7 @@ class Display extends JPanel implements ActionListener{
 
         lvl2 = new Level("fon21.png", "fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl2.plusitem(item2);
+        wizard = new Chel("wizard.png", 0,0,200,200,item1);
     }
 
     //Поиск пасхалки
@@ -194,6 +197,7 @@ class Display extends JPanel implements ActionListener{
 //                lvl2.paintf(g);
 //                break;
 //        }
+        wizard.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
         bigdick(g);

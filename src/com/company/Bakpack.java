@@ -23,10 +23,12 @@ class Bakpack{
         this.frame = frame;
         this.mouse = mouse;
         this.mouse1 = mouse1;
+        mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446);
     }
 
     public void paint(Graphics g){
         g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
+        mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446+yi);
         for (int i = 0; i < 20; i++){
             //System.out.println(items[i] + " " + i/5);
             if (items[i] != null){
@@ -76,7 +78,7 @@ class Bakpack{
 
     public void minus(){
         for (int i = 0; i < 20; i++){
-            if (mouse.getx(1) > 880+65*i && mouse.getx(1) < 880+65*i+30*40/50 && mouse.gety(1) < yi+277 && mouse.gety(1) > yi+277+40 && invop){
+            if (mouse.getx(2) > 880+65*i && mouse.getx(2) < 880+65*i+30*40/50 && mouse.gety(2) < yi+277 && mouse.gety(2) > yi+277+40 && invop){
                 items[i].setIsminus();
                 items[i] = null;
                 mas[i] = null;

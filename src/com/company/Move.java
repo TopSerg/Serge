@@ -210,7 +210,7 @@ public class Move {
                     k1 = (double) (stena[i][3] - stena[i][2]) / (double) (stena[i][1] - stena[i][0]);
                 }
                 b1 = stena[i][2];
-                System.out.println(k1 + " " + b1 + " " + (y1 + y) +" "+ (k1 * (x1-stena[i][0]) + b1));
+                //System.out.println(k1 + " " + b1 + " " + (y1 + y) +" "+ (k1 * (x1-stena[i][0]) + b1));
                 if (y1 + y < k1 * (x1-stena[i][0]) + b1) {
                     y1 -= y;
                     System.out.println(1);
