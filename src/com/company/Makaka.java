@@ -141,7 +141,7 @@ class mMouse extends Frame implements MouseListener{
 
 }*/
 
-public class Main {
+public class Makaka {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("JustGame");

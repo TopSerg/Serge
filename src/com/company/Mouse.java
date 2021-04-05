@@ -6,6 +6,7 @@ import java.awt.event.*;
 class Mouse extends Frame implements MouseListener{
 
    int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y;
+   boolean clik = false;
 
    public Mouse(){
 
@@ -19,6 +20,7 @@ class Mouse extends Frame implements MouseListener{
        //System.out.println("mouse pressed");
 //      oldx = xm;
 //      oldy = ym;
+      clik = true;
       this.xm = e.getX();
       this.ym = e.getY();
       i = 0;
@@ -40,6 +42,9 @@ class Mouse extends Frame implements MouseListener{
    public void mouseEntered(MouseEvent e)
    {
        //System.out.println("mouse Entered");
+   }
+   public boolean isClik(){
+      return clik;
    }
    public int getx(int a){
       System.out.println(xm+ " "+ym+ " " +oldx+ " "+oldy);
