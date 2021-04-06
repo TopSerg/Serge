@@ -55,13 +55,17 @@ class Gomik{
         item1 = new Item("l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
         item2 = new Item("l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
-        for (int i = 0; i < 15; i++){
+        //for (int i = 0; i < 15; i++){
             lvl1.plusitem(item1);
-        }
+        //}
 
         lvl2 = new Level("fon21.png", "fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl2.plusitem(item2);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse);
+    }
+
+    public void Itemp(Item item){
+        bakpack.plus(item);
     }
 
     //Поиск пасхалки
@@ -200,6 +204,7 @@ class Gomik{
         wizard.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
+        //System.out.println(frame.getWidth());
         bigdick(g);
     }
 

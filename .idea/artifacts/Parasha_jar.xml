@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Parasha:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Parasha_jar</output-path>
+    <root id="archive" name="Parasha.jar">
+      <element id="module-output" name="Parasha" />
+    </root>
+  </artifact>
+</component>

@@ -44,66 +44,87 @@ class Mouse extends Frame implements MouseListener{
        //System.out.println("mouse Entered");
    }
    public boolean isClik(){
+      if (clik){
+         clik = false;
+         return !clik;
+      }
       return clik;
    }
    public int getx(int a){
-      System.out.println(xm+ " "+ym+ " " +oldx+ " "+oldy);
+      //System.out.println(clik);
+      switch (a){
+         case(1):
+            if (xm > x && ym > y){
+               if (a == 1){
+                  if (i == 0) {
+                     i++;
+                     return oldx;
+                  }
+               }
+               if (a == 2){
+                  return xm;
+               }
+            }
+            else{
+               if (a == 1) {
+                  if (i == 0) {
+                     i++;
+                     oldx = xm;
+                     return xm;
+                  }
+               }
+               if (a == 2){
+                  return xm;
+               }
+               return oldx;
+            }
+            return oldx;
+         case(2):
+            return xm;
+         default:
+            return xm;
+      }
+
 //      if (i == 0) {
 //         i++;
 //         oldx = xm;
 //         return xm;
 //      }
-      if (xm > x && ym > y){
-         if (a == 1){
-            if (i == 0) {
-               i++;
-               return oldx;
-            }
-         }
-         if (a == 2){
-            return xm;
-         }
-      }
-      else{
-         if (a == 1) {
-            if (i == 0) {
-               i++;
-               oldx = xm;
-               return xm;
-            }
-         }
-         if (a == 2){
-            return xm;
-         }
-         return oldx;
-      }
-      return oldx;
+
    }
    public int gety(int a){
-      if (xm > x && ym > y){
-         if (a == 1){
-            if (j == 0) {
-               j++;
+      switch (a){
+         case(1):
+            if (xm > x && ym > y){
+               if (a == 1){
+                  if (j == 0) {
+                     j++;
+                     return oldy;
+                  }
+               }
+               if (a == 2){
+                  return ym;
+               }
+            }
+            else{
+               if (a == 1) {
+                  if (j == 0) {
+                     j++;
+                     oldy = ym;
+                     return ym;
+                  }
+               }
+               if (a == 2){
+                  return ym;
+               }
                return oldy;
             }
-         }
-         if (a == 2){
+            return oldy;
+         case(2):
             return ym;
-         }
-      }
-      else{
-         if (a == 1) {
-            if (j == 0) {
-               j++;
-               oldy = ym;
-               return ym;
-            }
-         }
-         if (a == 2){
+         default:
             return ym;
-         }
-         return oldy;
       }
-      return oldy;
+
    }
 }

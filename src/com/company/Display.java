@@ -11,6 +11,7 @@ public class Display extends JPanel implements ActionListener{
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
+    int h, w;
 //    int[][] pole = new int[12][12];
 //    int[][] anal = new int[12][12];
 //    int turn = 1, sum = 0, it = 0, iter = 0;
@@ -25,6 +26,7 @@ public class Display extends JPanel implements ActionListener{
     sosibibu xo;
     Gomik chapter1;
     int chapter = 0;
+    Item itm2;
 
     public Display(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         this.frame = frame;
@@ -33,6 +35,7 @@ public class Display extends JPanel implements ActionListener{
         xo = new sosibibu(frame, mouse, mouse1);
         chapter1 = new Gomik(frame,mouse,mouse1);
         timer.start();
+        itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0);
 ////        for (int i = 0; i < 12; i++){
 ////            for (int j =0; j < 12; j++){
 ////                pole[i][j] = 0;
@@ -310,6 +313,7 @@ public class Display extends JPanel implements ActionListener{
             chapter = 1;
         }
         if (xo.exit()){
+            chapter1.Itemp(itm2);
             chapter = 0;
         }
         switch (chapter){

@@ -50,6 +50,7 @@ public class Level {
 
     public void paintb(Graphics g, int x1,int y1){
         g.drawImage(background, 0, 0, frame.getWidth(), frame.getHeight(), null);
+        //System.out.println(frame.getWidth()+" "+ frame.getHeight());
         for (int i = 0; i < 5; i++){
             if (items[i] != null) {
                 items[i].paint(g);

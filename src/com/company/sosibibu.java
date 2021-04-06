@@ -9,9 +9,10 @@ public class sosibibu {
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
+    boolean v = false;
     int[][] pole = new int[12][12];
     int[][] anal = new int[12][12];
-    int turn = 1, sum = 0, it = 0, iter = 0;
+    int turn = 1, sum = 0, it = 0, iter = 0, xb=100, yb=100;
     Image pol = new ImageIcon("pole.png").getImage();
     Image x = new ImageIcon("x.png").getImage();
     Image o = new ImageIcon("o.png").getImage();
@@ -24,6 +25,9 @@ public class sosibibu {
         this.frame = frame;
         this.mouse = mouse;
         this.mouse1 = mouse1;
+//        System.out.println(w+ " ssssssssssssss " + h);
+//        xb = w/2-250;
+//        yb = h/2-250;
 //        for (int i = 0; i < 12; i++){
 //            for (int j =0; j < 12; j++){
 //                pole[i][j] = 0;
@@ -138,24 +142,27 @@ public class sosibibu {
     }
 
     public void paint(Graphics g) {
+        xb = frame.getWidth()/2-250;
+        yb = frame.getHeight()/2-250;
+        //System.out.println(xb+ " ssssssssssssss " + yb);
         if (!win()){
-            g.drawImage(pol, 100, 100, 500, 500, null);
+            g.drawImage(pol, xb, yb, 500, 500, null);
             for (int i = 0; i < 12; i++){
                 for (int j = 0; j < 12; j++){
                     if (pole[i][j] == 1){
                         //System.out.println(i + " " + j);
-                        g.drawImage(x, 100+39*(i+1), 100+37*(j+1), 400/13, 400/13, null);
+                        g.drawImage(x, xb+39*(i+1), yb+37*(j+1), 400/13, 400/13, null);
                     }
                     if (pole[i][j] == -1){
                         //System.out.println(i + " " + j);
-                        g.drawImage(o, 100+39*(i+1), 100+37*(j+1), 400/13, 400/13, null);
+                        g.drawImage(o, xb+39*(i+1), yb+37*(j+1), 400/13, 400/13, null);
                     }
                 }
             }
             //System.out.println(1);
         }
         else {
-            g.drawImage(kebok, 100, 100, 500, 500, null);
+            g.drawImage(kebok, xb, yb, 500, 500, null);
             button.paint(g);
         }
         g.drawString(str,frame.getWidth()-200,10);
@@ -284,7 +291,7 @@ public class sosibibu {
     }
 
     public boolean exit(){
-        if (button.Restart()){
+        if (button.Restart()||v){
             return true;
         }
         return false;
@@ -292,12 +299,18 @@ public class sosibibu {
 
 
     public void chlenbolit() {
+        int b = Math.round((mouse.gety(2) - yb) / 39) - 1;
+        int a = Math.round((mouse.getx(2) - xb) / 39) - 1;
+        if (a == 0 && b == 0){
+            v = true;
+        }
+        System.out.println(a+ " " + b);
         if (mouse.isClik()){
             if (iter == 0) {
                 iter++;
-                if (Math.round((mouse.getx(1) - 100) / 39) - 1 >= 0 && Math.round((mouse.gety(1) - 100) / 39) - 1 >= 0) {
-                    if (pole[Math.round((mouse.getx(1) - 100) / 39) - 1][Math.round((mouse.gety(1) - 100) / 39) - 1] == 0) {
-                        pole[Math.round((mouse.getx(1) - 100) / 39) - 1][Math.round((mouse.gety(1) - 100) / 39) - 1] = turn;
+                if (a >= 0 && b >= 0) {
+                    if (pole[a][b] == 0) {
+                        pole[a][b] = turn;
                         turn *= -1;
                     }
                 }
