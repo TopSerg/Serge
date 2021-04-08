@@ -32,10 +32,13 @@ class Bakpack{
         for (int i = 0; i < 20; i++){
             //System.out.println(items[i] + " " + i/5);
             if (items[i] != null){
+                items[i].found(mouse);
+                items[i].SetXY(frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+10*(i/5)+yi,  40,30*40/50);
                 //g.drawImage(mas[i], 880+65*i,yi+277, 30*40/50, 40, null);
                 //items[i].paint(g,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+yi, 30*40/50, 40);
 
-                items[i].paint(g,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+10*(i/5)+yi, 30*40/50, 40);
+                items[i].paint(g/*,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+10*(i/5)+yi, 30*40/50, 40*/);
+                //items[i].paint(g,frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+10*(i/5)+yi, 30*40/50, 40);
             }
 //            else{
 //                break;

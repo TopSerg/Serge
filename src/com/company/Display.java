@@ -11,6 +11,7 @@ public class Display extends JPanel implements ActionListener{
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
+    boolean d = false;
     int h, w;
 //    int[][] pole = new int[12][12];
 //    int[][] anal = new int[12][12];
@@ -311,9 +312,12 @@ public class Display extends JPanel implements ActionListener{
         //xo.chlenbolit();
         if (chapter1.start()){
             chapter = 1;
+            d = true;
         }
-        if (xo.exit()){
+        if (xo.exit() && d){
+            itm2.find = true;
             chapter1.Itemp(itm2);
+            d = false;
             chapter = 0;
         }
         switch (chapter){

@@ -213,7 +213,7 @@ public class Move {
                 //System.out.println(k1 + " " + b1 + " " + (y1 + y) +" "+ (k1 * (x1-stena[i][0]) + b1));
                 if (y1 + y < k1 * (x1-stena[i][0]) + b1) {
                     y1 -= y;
-                    System.out.println(1);
+                    //System.out.println(1);
                 }
                 if (y1 < k1 * ((x1-stena[i][0]) + x) + b1) {
                     x1 -= x;

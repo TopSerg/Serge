@@ -23,7 +23,7 @@ class Gomik{
     Bakpack bakpack;
 
     JFrame frame;
-    int xm = 0, ym = 0, xd, yd, dx = 0, dy = 0, speed = 3, i =0, level = 1;
+    int xm = 0, ym = 0, xd, yd, dx = 0, dy = 0, speed = 10, i =0, level = 1;
     int divx = 0, divy = 0;
     int y1 = 550, yi = 390, ym1 = 0;
     int x1 = 100, xm1 = 0;
