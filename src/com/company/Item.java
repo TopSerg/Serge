@@ -81,15 +81,6 @@ class Item{
         }
         //System.out.println(x+" "+ y+" "+ wight+" "+ high+"               asdfasdf              ");
     }
-    public void paint(Graphics g, int x, int y, int wight, int high){
-        if (find) {
-            g.drawImage(item, x, y, wight, high, null);
-        }
-        //System.out.println(x+" "+ y+" "+ wight+" "+ high);
-        //if (isminus&&!isget){
-        //  g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
-        //}
-    }
 
     public void setIsminus(){
         if (!isminus){

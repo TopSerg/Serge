@@ -177,6 +177,8 @@ public class Dsaper{
     }
 
     public void paint(Graphics g) {
+        //System.out.println(1);
+        g.drawImage(wini, 0, 0, frame.getWidth(), frame.getHeight(), null);
         if (win){
             g.drawImage(wini, 0, 0, frame.getWidth(), frame.getHeight(), null);
         }
@@ -233,6 +235,7 @@ public class Dsaper{
 
     //@Override
     public void actionPerformed() {
+        //System.out.println(1);
         win();
         //repaint();
     }

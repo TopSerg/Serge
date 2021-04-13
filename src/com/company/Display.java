@@ -332,6 +332,7 @@ public class Display extends JPanel implements ActionListener{
             d = false;
             sanya =true;
         }
+        //System.out.println(chapter);
         switch (chapter){
             case(0):
                 chapter1.actionPerformed();
@@ -347,6 +348,7 @@ public class Display extends JPanel implements ActionListener{
                 break;
             case(2):
                 dsaper.actionPerformed();
+                break;
             default:
                 System.out.println("ERROR");
         }

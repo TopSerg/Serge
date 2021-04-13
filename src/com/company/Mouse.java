@@ -44,7 +44,7 @@ public class Mouse extends Frame implements MouseListener{
       this.ym = e.getY();
       i = 0;
       j = 0;
-      System.out.println(xm + " " + ym);
+      //System.out.println(xm + " " + ym);
    }
    public void mouseReleased(MouseEvent e)
    {
@@ -124,7 +124,7 @@ public class Mouse extends Frame implements MouseListener{
             }
             return oldy;
          case(2):
-            System.out.println(ym + " " + oldy);
+            //System.out.println(ym + " " + oldy);
             if (ym == oldy){
                return 0;
             }

@@ -53,7 +53,7 @@ class Gomik{
         stena1[2] = new double[]{333.0/1280, 457.0/1280, 383.0/720, 0.0/720};
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  /*frame.getHeight()/*/80/*+y1/15*40/10*/,/*frame.getWidth()/*/50, move);
-        System.out.println(this.frame.getHeight()/*+y1/15*40/10*/+ " " + this.frame.getWidth());
+        //System.out.println(this.frame.getHeight()/*+y1/15*40/10*/+ " " + this.frame.getWidth());
         item1 = new Item("l_egg.png", "L_egg", 600, 100, 40, 50, mouse1,1);
         item2 = new Item("l_egg.png", "R_egg", 763, 264, 40, 50, mouse1,2);
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1);
