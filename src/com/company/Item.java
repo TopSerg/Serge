@@ -8,8 +8,8 @@ import javax.swing.*;
 class Item{
 
     Image item;
-    int x, y, wight, high, level = 0;
-    boolean find = false, isminus = false, isget = false, kaka = false;
+    int x, y, wight, high, level = 0, a = 0, b = 0;
+    boolean find = false, isminus = false, isget = false, kaka = false, buka = false;
     String name;
     Mouse1 mouse1;
 
@@ -27,6 +27,7 @@ class Item{
     public void find(int x, int y){
         if (x > this.x && x < this.x+wight && y > this.y && y < this.y+high && !find){
             find = true;
+            setIsminus();
         }
     }
 
@@ -39,8 +40,20 @@ class Item{
         else{
             kaka = false;
         }
-        if (mouse.getx(2)>= this.x && mouse.getx(2) < this.x+wight && mouse.gety(2) >= this.y && mouse.gety(2) < this.y+high && find && kaka){
+        if (a == 0&&mouse.getx(2)>= this.x && mouse.getx(2) < this.x+wight && mouse.gety(2) >= this.y && mouse.gety(2) < this.y+high && find && kaka){
+            if (buka){
+                setIsminus();
+                a++;
+                b = 0;
+            }
+            else{
+                buka = true;
+            }
+        }
+        if (mouse.getBut() == 3&&b == 0){
             setIsminus();
+            b++;
+            a = 0;
         }
     }
 
@@ -62,7 +75,7 @@ class Item{
         if (isminus){
             g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
         }
-        System.out.println(kaka);
+        //System.out.println(kaka);
         if (kaka){
             g.drawString(name, x,y);
         }

@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-class Mouse1 extends Frame implements MouseMotionListener {
+public class Mouse1 extends Frame implements MouseMotionListener {
     int xm1 = 0, ym1 = 0;
     public Mouse1(){
 

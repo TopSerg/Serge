@@ -27,6 +27,7 @@ class Bakpack{
     }
 
     public void paint(Graphics g){
+       // System.out.println(frame.getWidth() + " " + frame.getHeight());
         g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
         mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446+yi);
         for (int i = 0; i < 20; i++){

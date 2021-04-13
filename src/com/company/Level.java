@@ -14,12 +14,14 @@ public class Level {
     Player player;
     Mouse mouse;
 
-    int[][] stena;
+    double[][] stena;
+    int[][] mas;
     int level;
     boolean a = true;
 
-    public Level(String sback, String sfront, JFrame f, Bakpack b, int lvl, Player player, Mouse mouse, int[][] stena){
+    public Level(String sback, String sfront, JFrame f, Bakpack b, int lvl, Player player, Mouse mouse, double[][] stena){
         this.stena = stena;
+        mas = new int[stena.length][stena[0].length];
         this.mouse = mouse;
         level = lvl;
         frame = f;
@@ -116,7 +118,17 @@ public class Level {
 //            //System.out.println(i);
 //        }
         //if (a){
-        player.move(nx, ny, stena);
+        for (int i = 0; i < mas.length;i++){
+            for (int j = 0; j < mas.length;j++){
+                if (j == 0 || j == 1){
+                    mas[i][j] = (int)(stena[i][j]*frame.getWidth());
+                }
+                else{
+                    mas[i][j] = (int)(stena[i][j]*frame.getHeight());
+                }
+            }
+        }
+        player.move(nx, ny, mas);
         //System.out.println(nx + " " + ny);
         //}
         player.paint(g);

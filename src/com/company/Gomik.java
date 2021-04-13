@@ -33,8 +33,10 @@ class Gomik{
     String str = "";
     Level lvl1;
     Level lvl2;
+    Button button2;
 
     Chel wizard;
+    Chel but;
 
 
     public Gomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
@@ -45,10 +47,10 @@ class Gomik{
         yd = (int)(Math.random()*730);
         this.frame = frame;
         //timer.start();
-        int[][] stena1 = new int[3][4];
-        stena1[0] = new int[]{0, 333, 390, 390};
-        stena1[1] = new int[]{745, 1024, 390, 390};
-        stena1[2] = new int[]{333, 457, 383, 0};
+        double[][] stena1 = new double[3][4];
+        stena1[0] = new double[]{0, 333.0/1280, 390.0/720, 390.0/720};
+        stena1[1] = new double[]{745.0/1280, 1024.0/1280, 390.0/720, 390.0/720};
+        stena1[2] = new double[]{333.0/1280, 457.0/1280, 383.0/720, 0.0/720};
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  /*frame.getHeight()/*/80/*+y1/15*40/10*/,/*frame.getWidth()/*/50, move);
         System.out.println(this.frame.getHeight()/*+y1/15*40/10*/+ " " + this.frame.getWidth());
@@ -58,10 +60,11 @@ class Gomik{
         //for (int i = 0; i < 15; i++){
             lvl1.plusitem(item1);
         //}
-
+        //button2 = new Button(500,500,200,200,"but.png",mouse);
         lvl2 = new Level("fon21.png", "fon22.png", frame, bakpack, 1, gnom1, mouse, stena1);
         lvl2.plusitem(item2);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse);
+        but = new Chel("but.png", 500,500,200,200,item1, mouse);
     }
 
     public void Itemp(Item item){
@@ -202,17 +205,21 @@ class Gomik{
 //                break;
 //        }
         wizard.paint(g);
+        but.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
         //System.out.println(frame.getWidth());
         bigdick(g);
     }
 
-    public boolean start(){
+    public int start(){
         if (wizard.begin()){
-            return true;
+            return 1;
         }
-        return false;
+        else if(but.begin()){
+            return 2;
+        }
+        return 0;
     }
 
     // Метод таймера

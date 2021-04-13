@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.vzlomzopy.Dsaper;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -11,7 +13,9 @@ public class Display extends JPanel implements ActionListener{
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
-    boolean d = false;
+    boolean d = false, sanya = false;
+    Dsaper dsaper;
+
     int h, w;
 //    int[][] pole = new int[12][12];
 //    int[][] anal = new int[12][12];
@@ -33,8 +37,10 @@ public class Display extends JPanel implements ActionListener{
         this.frame = frame;
         this.mouse = mouse;
         this.mouse1 = mouse1;
+        //b = new BallGame();
         xo = new sosibibu(frame, mouse, mouse1);
         chapter1 = new Gomik(frame,mouse,mouse1);
+        dsaper = new Dsaper(frame,mouse,mouse1);
         timer.start();
         itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0);
 ////        for (int i = 0; i < 12; i++){
@@ -156,7 +162,13 @@ public class Display extends JPanel implements ActionListener{
                 chapter1.paint(g);
                 break;
             case (1):
-                xo.paint(g);
+                if (!sanya){
+                    xo.paint(g);
+                }
+                //b.kuk();
+                break;
+            case(2):
+                dsaper.paint(g);
                 break;
             default:
                 System.out.println("ERROR");
@@ -310,23 +322,31 @@ public class Display extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //System.out.println(1);
         //xo.chlenbolit();
-        if (chapter1.start()){
-            chapter = 1;
-            d = true;
+        if (chapter == 0){
+            chapter = chapter1.start();
         }
         if (xo.exit() && d){
             itm2.find = true;
             chapter1.Itemp(itm2);
-            d = false;
             chapter = 0;
+            d = false;
+            sanya =true;
         }
         switch (chapter){
             case(0):
                 chapter1.actionPerformed();
                 break;
             case (1):
-                xo.chlenbolit();
+                if (!sanya){
+                    d = true;
+                    xo.chlenbolit();
+                }
+                else {
+                    chapter = 0;
+                }
                 break;
+            case(2):
+                dsaper.actionPerformed();
             default:
                 System.out.println("ERROR");
         }
