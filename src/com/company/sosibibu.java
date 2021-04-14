@@ -16,7 +16,7 @@ public class sosibibu {
     Image pol = new ImageIcon("pole.png").getImage();
     Image x = new ImageIcon("x.png").getImage();
     Image o = new ImageIcon("o.png").getImage();
-    Image kebok = new ImageIcon("2.png").getImage();
+    Image kebok = new ImageIcon("kebok.png").getImage();
     String str = "";
     String img = "but.png";
     Button button;
@@ -25,14 +25,6 @@ public class sosibibu {
         this.frame = frame;
         this.mouse = mouse;
         this.mouse1 = mouse1;
-//        System.out.println(w+ " ssssssssssssss " + h);
-//        xb = w/2-250;
-//        yb = h/2-250;
-//        for (int i = 0; i < 12; i++){
-//            for (int j =0; j < 12; j++){
-//                pole[i][j] = 0;
-//            }
-//        }
         pole[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[2] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
@@ -76,11 +68,8 @@ public class sosibibu {
                 if (Math.abs(sum) == 5){
                     return true;
                 }
-                //System.out.print(sum);
             }
-            //System.out.println();
         }
-        //System.out.println();
         for (int j = 0; j < 12; j++){
             it = 0;
             sum = 0;
@@ -96,11 +85,8 @@ public class sosibibu {
                 if (Math.abs(sum) == 5){
                     return true;
                 }
-                //      System.out.print(sum + " ");
             }
-            //System.out.println();
         }
-        //System.out.println();
         for (int i = 0; i < 12; i++){
             it = 0;
             sum = 0;
@@ -110,13 +96,12 @@ public class sosibibu {
                     it++;
                 }
                 else{
-//                    System.out.println(1);
                     sum-=pole[i-j+it][j-it];
                     sum += pole[i-j][j];
                 }
                 if (Math.abs(sum) == 5){
                     return true;
-                }//System.out.println(sum);
+                }
             }
         }
         for (int i = 0; i < 12; i++){
@@ -134,7 +119,6 @@ public class sosibibu {
                 if (Math.abs(sum) == 5){
                     return true;
                 }
-                //System.out.println(sum);
             }
 
         }
@@ -144,34 +128,24 @@ public class sosibibu {
     public void paint(Graphics g) {
         xb = frame.getWidth()/2-250;
         yb = frame.getHeight()/2-250;
-        //System.out.println(xb+ " ssssssssssssss " + yb);
         if (!win()){
             g.drawImage(pol, xb, yb, 500, 500, null);
             for (int i = 0; i < 12; i++){
                 for (int j = 0; j < 12; j++){
                     if (pole[i][j] == 1){
-                        //System.out.println(i + " " + j);
                         g.drawImage(x, xb+39*(i+1), yb+37*(j+1), 400/13, 400/13, null);
                     }
                     if (pole[i][j] == -1){
-                        //System.out.println(i + " " + j);
                         g.drawImage(o, xb+39*(i+1), yb+37*(j+1), 400/13, 400/13, null);
                     }
                 }
             }
-            //System.out.println(1);
         }
         else {
             g.drawImage(kebok, xb, yb, 500, 500, null);
             button.paint(g);
         }
         g.drawString(str,frame.getWidth()-200,10);
-//        System.out.println(1);
-//        if (mouse.isClik()) {
-//            pole[Math.round((mouse.getx() - 100) / 39) - 1][Math.round((mouse.gety() - 100) / 39) - 1] = turn;
-//            System.out.println(Math.round(((mouse.getx() - 100) / 39) - 1) + " " + Math.round(((mouse.gety() - 100) / 39) - 1));
-//        }
-        //return;
     }
 
     public void bot(){
@@ -198,33 +172,9 @@ public class sosibibu {
                     for (int w = w1; w <= w2; w++){
                         for (int g = g1; g <= g2; g++){
                             made(i,j,w,g,1);
-                            //System.out.println(w+ " " + g);
                         }
                     }
                 }
-//                if (pole[i][j] == -1){
-//                    switch (i){
-//                        case (0):
-//                            w1 = 0;
-//                            break;
-//                        case (11):
-//                            w2 = 0;
-//                            break;
-//                    }
-//                    switch (j){
-//                        case (0):
-//                            g1 = 0;
-//                            break;
-//                        case (11):
-//                            g2 = 0;
-//                            break;
-//                    }
-//                    for (int w = w1; w < w2; w++){
-//                        for (int g = g1; g < g2; g++){
-//                            made(i,j,w,g,-1);
-//                        }
-//                    }
-//                }
             }
         }
         int max = 0, mi = 0, mj = 0;
@@ -237,17 +187,6 @@ public class sosibibu {
                 }
             }
         }
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 12; j++) {
-                System.out.print(anal[i][j]);
-
-            }
-            for (int j = 0; j < 12; j++) {
-                System.out.print(" " + pole[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
         pole[mi][mj] = turn;
         turn *= -1;
         for (int i = 0; i < 12; i++) {
@@ -259,12 +198,10 @@ public class sosibibu {
 
     public void made(int a, int b, int w, int g, int hod){
         int nw = 0, ng = 0;
-        //System.out.println(a + " " + b + " " + w + " " + g);
         if((pole[a+w][b+g] == 1 || pole[a+w][b+g] == -1)&&w == 0 && g == 0){
             //То ты лох
         }
         else if (pole[a+w][b+g] == 0){
-            //System.out.println(1);
             anal[a+w][b+g] += hod;
         }
         else{
@@ -340,7 +277,5 @@ public class sosibibu {
             it = 0;
             button.clik = false;
         }
-//        System.out.println(Math.round(((mouse.getx()-100)/39)-1) + " " + Math.round(((mouse.gety()-100)/39)-1));
-        //repaint();
     }
 }

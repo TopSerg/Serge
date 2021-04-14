@@ -14,7 +14,6 @@ public class Dsaper{
     JFrame frame;
     Mouse mouse;
     Mouse1 mouse1;
-    //Timer timer = new Timer(20, this);
     String but = "kakapress.jpg", but0 = "kaka.jpg", but1 = "1.jpg", but2 = "2.jpg", but3 = "3.jpg", but4 = "4.jpg", but5 = "5.jpg", but6 = "6.jpg", but7 = "7.jpg", but8 = "8.jpg", but9 = "9.jpg", minet = "minet.jpg", def = "def.jpg";
     Buttonvz[][] buttons = new com.company.vzlomzopy.Buttonvz[20][20];
     com.company.Button b;
@@ -28,7 +27,6 @@ public class Dsaper{
         this.mouse1 = mouse1;
         this.mouse = mouse;
         this.frame = frame;
-        //timer.start();
         pole[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         pole[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         pole[2] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -52,7 +50,6 @@ public class Dsaper{
         made();
         for (int j = 0; j < 20; j++){
             for (int e = 0; e < 20; e++){
-                //System.out.println(1);
                 switch (pole[j][e]){
                     case (1):
                         buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but1,mouse);
@@ -161,8 +158,7 @@ public class Dsaper{
         if (buttons[19][19] != null) {
             for (int j = 0; j < 20; j++) {
                 for (int e = 0; e < 20; e++) {
-                    //System.out.println(j + " " + e);
-                    if (buttons[j][e].IsOpen() /*&& !buttons[j][e].flagok*/) {
+                    if (buttons[j][e].IsOpen()) {
                         a++;
                         if (buttons[j][e].getNumber() == 'm' && !buttons[j][e].flagok) {
                             lose = true;
@@ -177,7 +173,6 @@ public class Dsaper{
     }
 
     public void paint(Graphics g) {
-        //System.out.println(1);
         g.drawImage(wini, 0, 0, frame.getWidth(), frame.getHeight(), null);
         if (win){
             g.drawImage(wini, 0, 0, frame.getWidth(), frame.getHeight(), null);
@@ -186,7 +181,6 @@ public class Dsaper{
             g.drawImage(losi, 0, 0, frame.getWidth(), frame.getHeight(), null);
         }
         else {
-            //System.out.println(win + " " + lose);
             int w1 = -1, w2 = 1, g1 = -1, g2 = 1;
             for (int j = 0; j < 20; j++) {
                 for (int e = 0; e < 20; e++) {
@@ -217,26 +211,13 @@ public class Dsaper{
                             }
                         }
                     }
-//                if (e < 19) {
-//                    if (buttons[j][e].IsOpen() && !buttons[j][e + 1].IsOpen() && buttons[j][e].getNumber() == 'd'){
-//                        buttons[j][e+1].isopen = true;
-//                    }
-//                }
-//                if (j < 19) {
-//                    if (buttons[j][e].IsOpen() && !buttons[j+1][e].IsOpen() && buttons[j][e].getNumber() == 'd'){
-//                        buttons[j+1][e].isopen = true;
-//                    }
-//                }
                     buttons[j][e].paint(g);
                 }
             }
         }
     }
 
-    //@Override
     public void actionPerformed() {
-        //System.out.println(1);
         win();
-        //repaint();
     }
 }

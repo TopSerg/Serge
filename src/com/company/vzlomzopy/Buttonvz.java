@@ -21,7 +21,6 @@ public class Buttonvz {
         this.mouse = mouse;
         number = (int) (str3.toCharArray()[0])-48;
         puck = str3.toCharArray()[0];
-        //System.out.println(str3.toCharArray()[0]);
         image = new ImageIcon(str1).getImage();
         image1 = new ImageIcon(str2).getImage();
         image2 = new ImageIcon(str3).getImage();
@@ -52,16 +51,12 @@ public class Buttonvz {
             else{
                 if (q < 5){
                     g.drawImage(image, x, y, width, hight, null);
-                    //q+=5;
-                    //System.out.println(q);
                     q++;
                 }
                 else{
                     g.drawImage(image2, x, y, width, hight, null);
                 }
             }
-
-            //g.drawImage(image, x, y, width, hight, null);
         }
     }
 
@@ -72,7 +67,6 @@ public class Buttonvz {
     }
 
     public char getNumber(){
-        //System.out.println(number);
         return puck;
     }
 

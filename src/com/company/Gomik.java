@@ -8,7 +8,7 @@ import javax.swing.*;
 class Gomik{
 
     Image gnom = new ImageIcon("gnom.png").getImage();
-    Image bigdick = new ImageIcon("2.png").getImage();
+    Image bigdick = new ImageIcon("kebok.png").getImage();
     Image inv = new ImageIcon("Invent.png").getImage();
 
     Player gnom1;
