@@ -31,6 +31,9 @@ class Bakpack{
         mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446+yi);
         for (int i = 0; i < 20; i++){
             if (items[i] != null){
+                if (items[i].IsGet()){
+                    items[i] = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol");
+                }
                 items[i].found(mouse);
                 items[i].SetXY(frame.getWidth()-340+13+65*i,frame.getHeight()+13-446+10*(i/5)+yi,  40,30*40/50);
                 items[i].paint(g);
@@ -71,7 +74,7 @@ class Bakpack{
     public void minus(){
         for (int i = 0; i < 20; i++){
             if (mouse.getx(2) > 880+65*i && mouse.getx(2) < 880+65*i+30*40/50 && mouse.gety(2) < yi+277 && mouse.gety(2) > yi+277+40 && invop){
-                items[i].setIsminus();
+                items[i].setIsminus(true);
                 items[i] = null;
                 mas[i] = null;
             }

@@ -12,8 +12,9 @@ class Item{
     boolean find = false, isminus = false, isget = false, kaka = false, buka = false;
     String name;
     Mouse1 mouse1;
+    String canmerge;
 
-    public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level){
+    public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level, String canmerge){
         item = new ImageIcon(s).getImage();
         this.level = level;
         this.x = x;
@@ -22,39 +23,48 @@ class Item{
         this.high = high;
         this.mouse1 = mouse1;
         this.name = name;
+        this.canmerge = canmerge;
     }
 
     public void find(int x, int y){
         if (x > this.x && x < this.x+wight && y > this.y && y < this.y+high && !find){
             find = true;
-            setIsminus();
         }
     }
 
     public void found(Mouse mouse){
-//        int x = mouse1.getx1();
-//        int y = mouse1.gety1();
         if (mouse1.getx1() >= this.x && mouse1.getx1() < this.x+wight && mouse1.gety1() >= this.y && mouse1.gety1() < this.y+high && find){
             kaka = true;
         }
         else{
             kaka = false;
         }
-        if (a == 0&&mouse.getx(2)>= this.x && mouse.getx(2) < this.x+wight && mouse.gety(2) >= this.y && mouse.gety(2) < this.y+high && find && kaka){
-            if (buka){
-                setIsminus();
+        if (a == 0&&mouse.getx(2)>= this.x && mouse.getx(2) < this.x+wight && mouse.gety(2) >= this.y && mouse.gety(2) < this.y+high && find){
+            if (buka && !mouse.HasItem()){
+                setIsminus(true);
                 a++;
                 b = 0;
+                mouse.Add(this);
             }
             else{
                 buka = true;
             }
+            if (mouse.HasItem()){
+                if (equals(mouse.getItem())){
+                    isget = true;
+                }
+            }
         }
         if (mouse.getBut() == 3&&b == 0){
-            setIsminus();
+            setIsminus(false);
+            mouse.Delete();
             b++;
             a = 0;
         }
+    }
+
+    public boolean IsGet(){
+        return isget;
     }
 
     public boolean getfind(){
@@ -80,13 +90,8 @@ class Item{
         }
     }
 
-    public void setIsminus(){
-        if (!isminus){
-            isminus = true;
-        }
-        else{
-            isminus = false;
-        }
+    public void setIsminus(boolean a){
+        isminus = a;
     }
 
     public String getName(){
@@ -94,12 +99,7 @@ class Item{
     }
 
     public boolean equals(Item item){
-        if (name == item.getName()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return canmerge.equals(item.getName());
     }
 
     public Image getImage(){

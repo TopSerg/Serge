@@ -1,19 +1,36 @@
 package com.company;
 
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class Mouse extends Frame implements MouseListener{
 
-   int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0;
+   int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0, xegg = 0, yegg = 0;
    boolean clik = false;
+    Item item;
 
    public Mouse(){
-
+      item = null;
    }
    public void Setxy(int x, int y){
       this.x = x;
       this.y = y;
+   }
+   public void Add(Item item){
+      this.item = item;
+   }
+   public void Delete(){
+      this.item = null;
+   }
+   public boolean HasItem(){
+      if (item == null){
+         return false;
+      }
+      return true;
+   }
+   public Item getItem(){
+      return item;
    }
    public void mousePressed(MouseEvent e)
    {
@@ -34,11 +51,13 @@ public class Mouse extends Frame implements MouseListener{
       else if ((int)ch[77]>47 && (int)ch[77]<58){
          but = ch[77]-48;
       }
-      clik = true;
-      this.xm = e.getX();
-      this.ym = e.getY();
-      i = 0;
-      j = 0;
+      if (but == 1){
+         clik = true;
+         this.xm = e.getX();
+         this.ym = e.getY();
+         i = 0;
+         j = 0;
+      }
    }
    public void mouseReleased(MouseEvent e)
    {
@@ -60,6 +79,12 @@ public class Mouse extends Frame implements MouseListener{
       return clik;
    }
    public int getx(int a){
+      if (item == null){
+         System.out.println(item);
+      }
+      else {
+         System.out.println(item.getName() + " " + HasItem());
+      }
       switch (a){
          case(1):
             if (xm > x && ym > y){
@@ -78,10 +103,10 @@ public class Mouse extends Frame implements MouseListener{
             }
             return oldx;
          case(2):
-            if (xm == oldx){
-               return 0;
-            }
-            oldx = xm;
+//            if (xm == xegg){
+//               return 0;
+//            }
+            xegg = xm;
             return xm;
          default:
             return xm;
@@ -106,10 +131,10 @@ public class Mouse extends Frame implements MouseListener{
             }
             return oldy;
          case(2):
-            if (ym == oldy){
-               return 0;
-            }
-            oldy = ym;
+//            if (ym == yegg){
+//               return 0;
+//            }
+            yegg = ym;
             return ym;
          default:
             return ym;
