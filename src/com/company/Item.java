@@ -75,11 +75,9 @@ class Item{
         if (isminus){
             g.drawImage(item, mouse1.getx1(), mouse1.gety1(), wight, high, null);
         }
-        //System.out.println(kaka);
         if (kaka){
             g.drawString(name, x,y);
         }
-        //System.out.println(x+" "+ y+" "+ wight+" "+ high+"               asdfasdf              ");
     }
 
     public void setIsminus(){

@@ -24,24 +24,10 @@ public class Player {
         a = move.getXY();
         x = a[0];
         y = a[1];
-        //x = move.getXY()[0];
-        //y = move.getXY()[1];
-        //move.moves(this);
     }
 
     public void move (int dx, int dy, int mas[][]){
         move.moves(this, mas, dx, dy);
     }
 
-    //    public Image getPlayer(){
-//        return player;
-//    }
-//
-//    public int getHigh(){
-//        return high;
-//    }
-//
-//    public int getWidth(){
-//        return width;
-//    }
 }
