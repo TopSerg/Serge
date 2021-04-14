@@ -13,6 +13,7 @@ class Item{
     String name;
     Mouse1 mouse1;
     String canmerge;
+    Item itm;
 
     public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level, String canmerge){
         item = new ImageIcon(s).getImage();
@@ -50,7 +51,7 @@ class Item{
                 buka = true;
             }
             if (mouse.HasItem()){
-                if (equals(mouse.getItem())){
+                if (eguals(mouse.getItem())){
                     isget = true;
                 }
             }
@@ -98,12 +99,21 @@ class Item{
         return name;
     }
 
-    public boolean equals(Item item){
+    public boolean eguals(Item item){
+        itm = item;
         return canmerge.equals(item.getName());
+    }
+
+    public boolean equals(Item item){
+        return name.equals(item.getName());
     }
 
     public Image getImage(){
         return item;
+    }
+
+    public Item getItm(){
+        return itm;
     }
 
 }

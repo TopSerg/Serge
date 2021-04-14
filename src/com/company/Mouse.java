@@ -79,12 +79,6 @@ public class Mouse extends Frame implements MouseListener{
       return clik;
    }
    public int getx(int a){
-      if (item == null){
-         System.out.println(item);
-      }
-      else {
-         System.out.println(item.getName() + " " + HasItem());
-      }
       switch (a){
          case(1):
             if (xm > x && ym > y){
