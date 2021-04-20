@@ -33,6 +33,7 @@ class Gomik{
     String str = "";
     Level lvl1;
     Level lvl2, lvl3;
+    Level[] mas;
     Button button2;
 
     Chel wizard;
@@ -40,6 +41,7 @@ class Gomik{
 
 
     public Gomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
+        mas = new Level[20];
         move = new Move(mouse, speed, x1, y1);
         this.mouse1 = mouse1;
         this.mouse = mouse;
@@ -76,6 +78,13 @@ class Gomik{
         lvl1.pluschel(wizard);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena1, next2);
         lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
+        pluslvl(lvl1);
+        pluslvl(lvl2);
+        pluslvl(lvl3);
+    }
+
+    public void pluslvl(Level level){
+        mas[level.getLevel()-1] = level;
     }
 
     public void Itemp(Item item){
@@ -195,17 +204,18 @@ class Gomik{
     // Метод отрисовки
     public void paint(Graphics g) {
         //System.out.println(frame.getWidth() + " " + frame.getHeight());
-        switch (level){
-            case (1):
-                //lvl1(g);
-                lvl1.paintb(g, x1, y1);
-                break;
-            case (2):
-                lvl2.paintb(g, x1, y1);
-                break;
-            case(3):
-                lvl3.paintb(g,x1,y1);
-        }
+//        switch (level){
+//            case (1):
+//                //lvl1(g);
+//                lvl1.paintb(g, x1, y1);
+//                break;
+//            case (2):
+//                lvl2.paintb(g, x1, y1);
+//                break;
+//            case(3):
+//                lvl3.paintb(g,x1,y1);
+//        }
+        mas[level-1].paintb(g,x1,y1);
         //wizard.paint(g);
         //but.paint(g);
         bakpack.paint(g);
@@ -244,22 +254,22 @@ class Gomik{
     }
 
     public int start(){
-        switch (level){
-            case (1):
-                //lvl1(g);
-                return lvl1.getNext();
-            case (2):
-                return lvl2.getNext();
-            case(3):
-                return lvl3.getNext();
-        }
+//        switch (level){
+//            case (1):
+//                //lvl1(g);
+//                return lvl1.getNext();
+//            case (2):
+//                return lvl2.getNext();
+//            case(3):
+//                return lvl3.getNext();
+//        }
+        return mas[level-1].getNext();
 //        if (wizard.begin()){
 //            return 1;
 //        }
 //        else if(but.begin()){
 //            return 2;
 //        }
-        return 0;
     }
 
     // Метод таймера
