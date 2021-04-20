@@ -64,7 +64,7 @@ public class Mouse extends Frame implements MouseListener{
          i = 0;
          j = 0;
       }
-      //System.out.println(xm + " " + ym);
+      System.out.println(xm * 1920.0/1535 + " " + ym*1080.0/883);
    }
    public void mouseReleased(MouseEvent e)
    {
