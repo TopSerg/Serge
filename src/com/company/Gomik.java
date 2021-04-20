@@ -17,7 +17,7 @@ class Gomik{
     JFrame frame;
     int xm = 0, ym = 0, xd, yd, dx = 0, dy = 0, speed = 10, i =0, level = 1, l = 0;
     int divx = 0, divy = 0;
-    int y1 = 550, yi = 390, ym1 = 0;
+    int y1 = 650, yi = 390, ym1 = 0;
     int x1 = 100, xm1 = 0;
     boolean find = false, a = false, invop = false, item1f = false;
     Mouse1 mouse1;
@@ -48,17 +48,20 @@ class Gomik{
         double[][] stena3 = new double[1][4];
         stena3[0] = new double[]{212.0/1280, 1001.0/1280, 502.0/720, 502.0/720};
         double[][] next1 = new double[1][7];
-        next1[0] = new double[]{457.0/1280, 0/1280, 747.0/1280, 35.0/720, 2, 221.0/1280, 375.0/720};
+        next1[0] = new double[]{457.0/1280, 0/1280, 747.0/1280, 35.0/720, 2, 221.0/1280, 400.0/720};
         double[][] next2 = new double[2][7];
         next2[0] = new double[]{963.0/1280, 306.0/720, 1164.0/1280, 417.0/720, 3, 50.0/1280, 650.0/720};
-        next2[1] = new double[]{98.0/1280, 367.0/720, 316.0/1280, 327.0/720, 1, 221.0/1280, 375.0/720};
+        next2[1] = new double[]{98.0/1280, 327.0/720, 316.0/1280, 367.0/720, 1, 929.0/1920, 209.0/1080};
+        double[][] next3 = new double[2][7];
+        next3[0] = new double[]{87.0/1920, 816.0/1080, 256.0/1920, 874.0/1080, 2, 50.0/1920, 650.0/1080};
+        next3[1] = new double[]{1544.0/1920, 756.0/1080, 1838.0/1920, 794.0/1080, 1, 50.0/1920, 650.0/1080};
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
         item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg");
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1, next1);
         lvl1.plusitem(item1);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
-        lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next1);
+        lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
 //        wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse);
 //        but = new Chel("but.png", 500,500,200,200,item1, mouse);
     }
@@ -88,6 +91,7 @@ class Gomik{
     }
 
     public void paint(Graphics g) {
+        //System.out.println(frame.getWidth() + " " + frame.getHeight());
         switch (level){
             case (1):
                 //lvl1(g);
@@ -150,7 +154,6 @@ class Gomik{
         dx = xm-x1;
         dy = ym-y1;
         str = frame.getHeight() + " " + divy + " " + xm1 + " " + ym1 + " " + x1 + " " + y1 + " " + xd + " " + yd + " " + yi;
-
         find = find(xm, ym, xd, yd);
         x1 = move.getXY()[0];
         y1 = move.getXY()[1];

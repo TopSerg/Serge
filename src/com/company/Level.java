@@ -8,6 +8,7 @@ import javax.swing.*;
 public class Level {
     Image background;
     Image frontground;
+    Image dick = new ImageIcon("kebok.png").getImage();
     JFrame frame;
     Item [] items = new Item[5];
     Bakpack bakpack;
@@ -81,7 +82,6 @@ public class Level {
             }
         }
         for (int i = 0; i < masas.length;i++){
-            System.out.println(i);
             for (int j = 0; j < masas[i].length;j++){
                 if (j == 0 || j == 2 || j == 5){
                     masas[i][j] = (int)(next[i][j]*frame.getWidth());
@@ -96,15 +96,23 @@ public class Level {
             if(player.isNext(masas[i])){
                 nextlvl = true;
                 nlvl = masas[i][4];
-                System.out.println(masas[i][5] + " " + masas[i][6]);
                 player.setXY(masas[i][5], masas[i][6]);
             }
-            g.drawRect(masas[i][0], masas[i][1], masas[i][2]-masas[i][0],masas[i][3]-masas[i][1]);
+            g.setColor(new Color(209, 0, 255, 149));
+            g.fillRect(masas[i][0], masas[i][1], masas[i][2]-masas[i][0],masas[i][3]-masas[i][1]);
+            g.setColor(new Color(0, 0, 0));
         }
-
         player.move(nx, ny, mas);
         player.paint(g);
         paintf(g);
+        if(level == 3){
+            if (mouse.getx(3) > frame.getWidth()*1162.0/1920 && mouse.getx(3) < frame.getWidth()*1226.0/1920 && mouse.gety(3) > frame.getHeight()*134.0/1080 && mouse.gety(3) < frame.getHeight()*203.0/1080){
+                for (int i = 0; i < 100; i++){
+                    g.drawImage(dick,0,0,frame.getWidth(), frame.getHeight(), null);
+                }
+            }
+            //1920 1080
+        }
     }
 
     public void paintf(Graphics g){
