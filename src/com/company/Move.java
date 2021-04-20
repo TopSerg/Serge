@@ -4,7 +4,8 @@ import java.awt.*;
 
 public class Move {
     int level = 1, x1 = 0, y1 = 0, dx, dy, divx, divy, speed, px, py;
-    int stena[][];
+    int[][] stena;
+    int[] next;
     double k, xdiv = 0, ydiv = 0;
     boolean a = true;
     Mouse mouse;
@@ -69,15 +70,6 @@ public class Move {
         div(nx, ny);
     }
 
-    public void moves(Item item){
-        item.x = x1;
-        item.y = y1;
-    }
-
-    public void mov(int x, int y){
-        move1(x,y);
-    }
-
     public void div(int x, int y){
         dx = x - x1;
         dy = y - y1;
@@ -134,8 +126,8 @@ public class Move {
     }
 
     public void move1(int x, int y) {
-        int b1 = 0, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
-        double k1 = 1, k2 = 1;
+        int b1;
+        double k1 = 1;
         for (int i = 0; i < stena.length; i++) {
             if (x1 + x > stena[i][0] && x1 + x < stena[i][1]) {
                 if (stena[i][1] - stena[i][0] != 0) {
@@ -154,10 +146,23 @@ public class Move {
         y1 += y;
     }
 
-        public int[] getXY() {
+    public int[] getXY() {
             int[] ans = new int[2];
             ans[0] = x1;
             ans[1] = y1;
             return ans;
-        }
     }
+
+    public void setXY(int x, int y){
+        x1 = x;
+        y1 = y;
+    }
+
+    public boolean isNext(int[] mas){
+        if (x1 > mas[0] && y1 > mas[1] && x1 < mas[2] && y1 < mas[3]){
+            return true;
+        }
+        return false;
+    }
+
+}

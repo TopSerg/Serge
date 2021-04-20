@@ -21,13 +21,24 @@ public class Player {
     public void paint(Graphics g){
         int[] a;
         g.drawImage(player, x, y, width, high, null);
+//        System.out.println(x + " " + y);
         a = move.getXY();
         x = a[0];
         y = a[1];
     }
 
+    public boolean isNext(int[] mas){
+        return move.isNext(mas);
+    }
+
     public void move (int dx, int dy, int mas[][]){
         move.moves(this, mas, dx, dy);
+    }
+
+    public void setXY(int x, int y){
+//        this.x = x;
+//        this.y = y;
+        move.setXY(x,y);
     }
 
 }

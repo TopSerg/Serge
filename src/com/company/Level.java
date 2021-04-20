@@ -15,13 +15,18 @@ public class Level {
     Mouse mouse;
 
     double[][] stena;
-    int[][] mas;
+    int[][] mas, masas;
+    double[][] next;
     int level;
+    public static int nlvl = 1;
     boolean a = true;
+    static boolean nextlvl = false;
 
-    public Level(String sback, String sfront, JFrame f, Bakpack b, int lvl, Player player, Mouse mouse, double[][] stena){
+    public Level(String sback, String sfront, JFrame f, Bakpack b, int lvl, Player player, Mouse mouse, double[][] stena, double[][] next){
         this.stena = stena;
+        this.next = next;
         mas = new int[stena.length][stena[0].length];
+        masas = new int[next.length][next[0].length];
         this.mouse = mouse;
         level = lvl;
         frame = f;
@@ -75,6 +80,28 @@ public class Level {
                 }
             }
         }
+        for (int i = 0; i < masas.length;i++){
+            System.out.println(i);
+            for (int j = 0; j < masas[i].length;j++){
+                if (j == 0 || j == 2 || j == 5){
+                    masas[i][j] = (int)(next[i][j]*frame.getWidth());
+                }
+                else if (j == 1 || j == 3 || j == 6){
+                    masas[i][j] = (int)(next[i][j]*frame.getHeight());
+                }
+                else{
+                    masas[i][j] = (int) next[i][j];
+                }
+            }
+            if(player.isNext(masas[i])){
+                nextlvl = true;
+                nlvl = masas[i][4];
+                System.out.println(masas[i][5] + " " + masas[i][6]);
+                player.setXY(masas[i][5], masas[i][6]);
+            }
+            g.drawRect(masas[i][0], masas[i][1], masas[i][2]-masas[i][0],masas[i][3]-masas[i][1]);
+        }
+
         player.move(nx, ny, mas);
         player.paint(g);
         paintf(g);
@@ -87,6 +114,10 @@ public class Level {
         if (frontground != null){
             g.drawImage(frontground, 0, 0, frame.getWidth(), frame.getHeight(), null);
         }
+    }
+
+    public static int Nextlvl(){
+        return nlvl;
     }
 
     public int getLevel(){
