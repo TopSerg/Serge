@@ -13,6 +13,12 @@ public class Mouse extends Frame implements MouseListener{
    public Mouse(){
       item = null;
    }
+   public void setXY(int x, int y){
+      this.xm = x;
+      this.ym = y;
+      oldy = y;
+      oldx = x;
+   }
    public void Setxy(int x, int y){
       this.x = x;
       this.y = y;
@@ -58,7 +64,7 @@ public class Mouse extends Frame implements MouseListener{
          i = 0;
          j = 0;
       }
-      System.out.println(xm + " " + ym);
+      //System.out.println(xm + " " + ym);
    }
    public void mouseReleased(MouseEvent e)
    {

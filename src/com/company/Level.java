@@ -11,6 +11,7 @@ public class Level {
     Image dick = new ImageIcon("kebok.png").getImage();
     JFrame frame;
     Item [] items = new Item[5];
+    Chel[] chels = new Chel[5];
     Bakpack bakpack;
     Player player;
     Mouse mouse;
@@ -52,8 +53,29 @@ public class Level {
 
     }
 
+    public void pluschel(Chel chel){
+        for (int i = 0; i < 5; i++){
+            if (chels[i] == null && a){
+                chels[i] = chel;
+                break;
+            }
+        }
+
+    }
+
     public void script(){
 
+    }
+
+    public int getNext(){
+        for (int i = 0 ; i < 5; i++){
+            if (chels[i] != null) {
+                if (chels[i].begin()) {
+                    return chels[i].getRetur();
+                }
+            }
+        }
+        return 0;
     }
 
     public void paintb(Graphics g, int x1,int y1){
@@ -66,6 +88,9 @@ public class Level {
                     bakpack.plus(items[i]);
                     items[i] = null;
                 }
+            }
+            if (chels[i] != null){
+                chels[i].paint(g);
             }
         }
         int mx = mouse.getx(1), my = mouse.gety(1), x = player.x, y = player.y,  b1, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
@@ -100,7 +125,7 @@ public class Level {
             }
             g.setColor(new Color(209, 0, 255, 149));
             g.fillRect(masas[i][0], masas[i][1], masas[i][2]-masas[i][0],masas[i][3]-masas[i][1]);
-            g.setColor(new Color(0, 0, 0));
+            g.setColor(new Color(255, 0, 0));
         }
         player.move(nx, ny, mas);
         player.paint(g);

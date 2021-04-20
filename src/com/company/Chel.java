@@ -5,13 +5,14 @@ import java.awt.*;
 
 public class Chel {
 
-    int x, y, high, width;
+    int x, y, high, width, retur;
     Image img;
     Item needitem;
     Mouse mouse;
 
 
-    public Chel(String s, int x,int y,int high,int width, Item item, Mouse mouse){
+    public Chel(String s, int x,int y,int high,int width, Item item, Mouse mouse, int retur){
+        this.retur = retur;
         needitem = item;
         img = new ImageIcon(s).getImage();
         this.x = x;
@@ -32,9 +33,13 @@ public class Chel {
 
     public boolean begin(){
         if (mouse.getx(1) > x &&mouse.getx(1) < x+width && mouse.gety(1) > y && mouse.gety(1) < y+high){
-            System.out.println("21341234142");
+            //System.out.println("21341234142");
             return true;
         }
         return false;
+    }
+
+    public int getRetur() {
+        return retur;
     }
 }

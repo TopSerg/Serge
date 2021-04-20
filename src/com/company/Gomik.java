@@ -60,10 +60,11 @@ class Gomik{
         item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg");
         lvl1 = new Level("fon1.png", "no", frame, bakpack, 1, gnom1, mouse, stena1, next1);
         lvl1.plusitem(item1);
+        wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
+        but = new Chel("but.png", 500,500,200,200,item1, mouse, 2);
+        lvl1.pluschel(wizard);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
         lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
-//        wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse);
-//        but = new Chel("but.png", 500,500,200,200,item1, mouse);
     }
 
     public void Itemp(Item item){
@@ -103,8 +104,8 @@ class Gomik{
             case(3):
                 lvl3.paintb(g,x1,y1);
         }
-//        wizard.paint(g);
-//        but.paint(g);
+        //wizard.paint(g);
+        //but.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
         bigdick(g);
@@ -140,6 +141,15 @@ class Gomik{
     }
 
     public int start(){
+        switch (level){
+            case (1):
+                //lvl1(g);
+                return lvl1.getNext();
+            case (2):
+                return lvl2.getNext();
+            case(3):
+                return lvl3.getNext();
+        }
 //        if (wizard.begin()){
 //            return 1;
 //        }
@@ -159,11 +169,9 @@ class Gomik{
         y1 = move.getXY()[1];
         bakpack.move(xm1, ym1);
         bakpack.minus();
-        if (Level.Nextlvl() != 0){
-
-        }
-        level = Level.Nextlvl();
-        if (xm > 870 && ym > 470 && bakpack.invop){
+        if (level!= Level.Nextlvl()) {
+            level = Level.Nextlvl();
+            mouse.setXY(gnom1.x, gnom1.y);
         }
         else{
             xm = mouse.getx(1);
