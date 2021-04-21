@@ -17,6 +17,7 @@ class Gomik{
 
     Item item1;
     Item item2;
+    Item itm3;
 
     //Timer timer = new Timer(20, this);
 
@@ -43,6 +44,7 @@ class Gomik{
 
 
     public Gomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
+
         mas = new Level[20];
         move = new Move(mouse, speed, x1, y1);
         this.mouse1 = mouse1;
@@ -103,7 +105,9 @@ class Gomik{
 
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
-        item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg");
+        item2 = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol", null);
+        itm3 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", item2);
+        item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg", item2);
         lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item1);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
@@ -111,7 +115,6 @@ class Gomik{
         crv = new Crovat("head.png", "dick.png","L+R",500,500,100,200,mouse);
         lvl1.pluschel(wizard);
         lvl1.pluscrovat(crv);
-        lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena1, next2);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
         lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
         lvl4 = new Level("room3.jpg", "no", frame, bakpack, 4, gnom1, mouse, stena5, next5);
@@ -278,32 +281,6 @@ class Gomik{
 //        g.setColor(new Color(255, 100, 100));
 //        g.drawRect((int) (457.0/1280*frame.getWidth()), 0/1280, (int)(747.0/1280*frame.getWidth())-(int) (457.0/1280*frame.getWidth()), (int)(35.0/720*frame.getHeight()));
         //TestStena(g);
-    }
-
-    public void TestStena(Graphics g){
-        int x1 = 0, x2 = 0,y1 = 0,y2 = 0;
-        if (mouse.isClik()){
-            switch (l){
-                case(0):
-                    x1 = mouse.getx(3);
-                    y1 = mouse.gety(3);
-                    l++;
-                    break;
-                case (1):
-                    x2 = mouse.getx(3);
-                    y2 = mouse.gety(3);
-                    l = 0;
-                    break;
-            }
-        }
-        //if (l == 0){
-            double k = ((double)y2-(double)y1)/((double)x2-(double)x1);
-            for (int j = x1; j <= x2; j++){
-                g.setColor(new Color(255, 100, 100));
-                g.drawLine(j,y1+(int)(k*(double)j),j,0);
-            }
-            g.setColor(new Color(0, 0, 0));
-        //}
     }
 
     public int start(){

@@ -136,9 +136,6 @@ public class Level {
                 nlvl = masas[i][4];
                 player.setXY(masas[i][5], masas[i][6]);
             }
-            g.setColor(new Color(209, 0, 255, 149));
-            g.fillRect(masas[i][0], masas[i][1], masas[i][2]-masas[i][0],masas[i][3]-masas[i][1]);
-            g.setColor(new Color(255, 0, 0));
         }
         player.move(nx, ny, mas);
         player.paint(g);
@@ -154,9 +151,6 @@ public class Level {
     }
 
     public void paintf(Graphics g){
-        for (int i = 0; i < mas.length; i++){
-            g.drawLine(mas[i][0], mas[i][2], mas[i][1], mas[i][3]);
-        }
         if (frontground != null){
             g.drawImage(frontground, 0, 0, frame.getWidth(), frame.getHeight(), null);
         }

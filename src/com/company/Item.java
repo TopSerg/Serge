@@ -15,7 +15,7 @@ class Item{
     String canmerge;
     Item itm;
 
-    public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level, String canmerge){
+    public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level, String canmerge, Item itm){
         item = new ImageIcon(s).getImage();
         this.level = level;
         this.x = x;
@@ -25,6 +25,7 @@ class Item{
         this.mouse1 = mouse1;
         this.name = name;
         this.canmerge = canmerge;
+        this.itm = itm;
     }
 
     public void find(int x, int y){
@@ -100,7 +101,6 @@ class Item{
     }
 
     public boolean eguals(Item item){
-        itm = item;
         return canmerge.equals(item.getName());
     }
 
@@ -112,8 +112,7 @@ class Item{
         return item;
     }
 
-    public Item getItm(){
+    public Item getItm() {
         return itm;
     }
-
 }

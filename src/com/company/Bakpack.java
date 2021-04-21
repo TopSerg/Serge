@@ -27,6 +27,7 @@ class Bakpack{
     }
 
     public void paint(Graphics g){
+        Item item = null;
         g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
         mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446+yi);
         for (int i = 0; i < 20; i++){
@@ -38,12 +39,18 @@ class Bakpack{
                     for (int j = 0; j < 20; j++){
                         if (items[j] != null){
                             if (items[i].eguals(items[j])){
+                                if (items[i].getItm() != null){
+                                    item = items[i].getItm();
+                                }
+                                if (items[j].getItm() != null){
+                                    item = items[j].getItm();
+                                }
                                 items[j] = null;
+                                items[i] = item;
+                                items[i].find = true;
                             }
                         }
                     }
-                    items[i] = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol");
-                    items[i].find = true;
 //                    items[i+1] = null;
                 }
             }
