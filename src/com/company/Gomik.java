@@ -36,6 +36,7 @@ class Gomik{
     Level lvl4,lvl5;
     Level[] mas;
     Button button2;
+    Crovat crv;
 
     Chel wizard;
     Chel but;
@@ -51,9 +52,9 @@ class Gomik{
         this.frame = frame;
         //timer.start();
         double[][] stena1 = new double[3][4];
-        stena1[0] = new double[]{366.0/1920, 1920.0/1920, 746.0/1080, 746.0/1080};
-        stena1[1] = new double[]{1035.0/1920, 1556.0/1920, 949.0/1080, 949.0/1080};
-        stena1[2] = new double[]{1556.0/1920, 1866.0/1920, 949.0/1080, 644.0/1080};
+//        stena1[0] = new double[]{366.0/1920, 1920.0/1920, 746.0/1080, 746.0/1080};
+//        stena1[1] = new double[]{1035.0/1920, 1556.0/1920, 949.0/1080, 949.0/1080};
+//        stena1[2] = new double[]{1556.0/1920, 1866.0/1920, 949.0/1080, 644.0/1080};
         double[][] stena2 = new double[4][4];
         stena2[0] = new double[]{0, 145.0/1920, 892.0/1080, 553.0/1080};
         stena2[1] = new double[]{461.0/1920, 902.0/1920, 485.0/1080, 662.0/1080};
@@ -102,7 +103,10 @@ class Gomik{
         lvl1.plusitem(item1);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
         but = new Chel("but.png", 500,500,200,200,item1, mouse, 2);
+        crv = new Crovat("head.png", "dick.png","L+R",500,500,100,200,mouse);
         lvl1.pluschel(wizard);
+        lvl1.pluscrovat(crv);
+        lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena1, next2);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
         lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
         lvl4 = new Level("room3.jpg", "no", frame, bakpack, 4, gnom1, mouse, stena5, next5);

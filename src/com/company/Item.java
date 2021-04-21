@@ -80,7 +80,7 @@ class Item{
     }
 
     public void paint(Graphics g){
-        if (!find||find){
+        if (!isminus){
             g.drawImage(item, x, y, wight, high, null);
         }
         if (isminus){

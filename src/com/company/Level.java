@@ -12,6 +12,7 @@ public class Level {
     JFrame frame;
     Item [] items = new Item[5];
     Chel[] chels = new Chel[5];
+    Crovat[] crovats = new Crovat[5];
     Bakpack bakpack;
     Player player;
     Mouse mouse;
@@ -47,6 +48,15 @@ public class Level {
         for (int i = 0; i < 5; i++){
             if (items[i] == null && a){
                 items[i] = item;
+                break;
+            }
+        }
+
+    }
+    public void pluscrovat(Crovat crovat){
+        for (int i = 0; i < 5; i++){
+            if (crovats[i] == null && a){
+                crovats[i] = crovat;
                 break;
             }
         }
@@ -91,6 +101,9 @@ public class Level {
             }
             if (chels[i] != null){
                 chels[i].paint(g);
+            }
+            if (crovats[i] != null){
+                crovats[i].paint(g);
             }
         }
         int mx = mouse.getx(1), my = mouse.gety(1), x = player.x, y = player.y,  b1, b2, xp, yp, nx = 0, ny = 0, dx = 0, dy = 0;
