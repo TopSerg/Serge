@@ -33,6 +33,7 @@ class Gomik{
     String str = "";
     Level lvl1;
     Level lvl2, lvl3;
+    Level lvl4,lvl5;
     Level[] mas;
     Button button2;
 
@@ -54,33 +55,63 @@ class Gomik{
         stena1[1] = new double[]{1035.0/1920, 1556.0/1920, 949.0/1080, 949.0/1080};
         stena1[2] = new double[]{1556.0/1920, 1866.0/1920, 949.0/1080, 644.0/1080};
         double[][] stena2 = new double[4][4];
-        stena2[0] = new double[]{0, 62.0/1920, 897.0/1080, 897.0/1080};
-        stena2[1] = new double[]{62.0/1920, 226.0/1920, 897.0/1080, 897.0/1080};
-        stena2[2] = new double[]{226.0/1920, 1444.0/1920, 662.0/1080, 459.0/1080};
+        stena2[0] = new double[]{0, 145.0/1920, 892.0/1080, 553.0/1080};
+        stena2[1] = new double[]{461.0/1920, 902.0/1920, 485.0/1080, 662.0/1080};
+        stena2[2] = new double[]{902.0/1920, 1444.0/1920, 662.0/1080, 459.0/1080};
         stena2[3] = new double[]{1771.0/1920, 1920.0/1920, 587.0/1080, 823.0/1080};
         double[][] stena3 = new double[1][4];
         stena3[0] = new double[]{212.0/1280, 1001.0/1280, 502.0/720, 502.0/720};
+        double[][] stena4 = new double[8][4];
+        stena4[0] = new double[]{0, 48.0/1920, 950.0/1080, 906.0/1080};
+        stena4[1] = new double[]{48.0/1920, 145.0/1920, 906.0/1080, 906.0/1080};
+        stena4[2] = new double[]{48.0/1920, 233.0/1920, 906.0/1080, 906.0/1080};
+        stena4[3] = new double[]{233.0/1920, 622.0/1920, 906.0/1080, 703.0/1080};
+        stena4[4] = new double[]{622.0/1920, 1439.0/1920, 703.0/1080, 703.0/1080};
+        stena4[5] = new double[]{803.0/1920, 1048.0/1920, 762.0/1080, 762.0/1080};
+        stena4[6] = new double[]{1788.0/1920, 1920.0/1920, 703.0/1080, 703.0/1080};
+        stena4[7] = new double[]{1048.0/1920, 1160.0/1920, 762.0/1080, 703.0/1080};
+        double[][] stena5 = new double[7][4];
+        double[][] stena6 = new double[7][4];
+        stena6[1] = new double[]{515.0/1920, 1503.0/1920, 755.0/1080, 755.0/1080};
+        stena6[2] = new double[]{302.0/1920, 1503.0/1920, 693.0/1080, 693.0/1080};
+        stena6[3] = new double[]{1883.0/1920, 1920.0/1920, 755.0/1080, 755.0/1080};
+
         double[][] next1 = new double[1][7];
         next1[0] = new double[]{457.0/1280, 0/1280, 747.0/1280, 35.0/720, 2, 221.0/1280, 400.0/720};
-        double[][] next2 = new double[2][7];
+        double[][] next4 = new double[1][7];
+        next4[0] = new double[]{101.0/1920, 733.0/1080, 300.0/1920, 780.0/1080, 4, 1523.0/1920, 833.0/1080};
+
+        double[][] next5 = new double[3][7];
+        next5[0] = new double[]{1619.0/1920, 620.0/1080, 1807.0/1920, 782.0/1080, 1, 300.0/1920,800.0/1080};
+        next5[1] = new double[]{115.0/1920, 643.0/1080, 300.0/1920, 736.0/1080, 5, 1358.0/1920, 875.0/1080};
+        next5[2] = new double[]{815.0/1920, 617.0/1080, 1105.0/1920, 685.0/1080, 3, 1574.0/1920, 867.0/1080};
+        double[][] next2 = new double[1][7];
         next2[0] = new double[]{963.0/1280, 306.0/720, 1164.0/1280, 417.0/720, 3, 50.0/1280, 650.0/720};
-        next2[1] = new double[]{98.0/1280, 327.0/720, 316.0/1280, 367.0/720, 1, 929.0/1920, 209.0/1080};
+
         double[][] next3 = new double[2][7];
-        next3[0] = new double[]{87.0/1920, 816.0/1080, 256.0/1920, 874.0/1080, 2, 50.0/1920, 650.0/1080};
-        next3[1] = new double[]{1544.0/1920, 756.0/1080, 1838.0/1920, 794.0/1080, 1, 50.0/1920, 650.0/1080};
+        next3[0] = new double[]{80.0/1920, 710.0/1080, 256.0/1920, 834.0/1080, 2, 1427.0/1920, 708.0/1080};
+        next3[1] = new double[]{1544.0/1920, 756.0/1080, 1838.0/1920, 794.0/1080, 4, 1081.0/1920, 697.0/1080};
+
+        double[][] next6 = new double[2][7];
+        next6[1] = new double[]{1440.0/1920, 720.0/1080, 1787.0/1920, 800.0/1080, 4, 303.0/1920, 852.0/1080};
+
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
         item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg");
-        lvl1 = new Level("room5.jpg", "no", frame, bakpack, 1, gnom1, mouse, stena1, next1);
+        lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena6, next4);
         lvl1.plusitem(item1);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
         but = new Chel("but.png", 500,500,200,200,item1, mouse, 2);
         lvl1.pluschel(wizard);
-        lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena1, next2);
+        lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
         lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
+        lvl4 = new Level("room3.jpg", "no", frame, bakpack, 4, gnom1, mouse, stena5, next5);
+        lvl5 = new Level("room4.jpg", "no", frame, bakpack, 5, gnom1, mouse, stena4, next6);
         pluslvl(lvl1);
         pluslvl(lvl2);
         pluslvl(lvl3);
+        pluslvl(lvl4);
+        pluslvl(lvl5);
     }
 
     public void pluslvl(Level level){
@@ -204,6 +235,19 @@ class Gomik{
     // Метод отрисовки
     public void paint(Graphics g) {
         //System.out.println(frame.getWidth() + " " + frame.getHeight());
+      //  switch (level){
+        //    case (1):
+     //           //lvl1(g);
+     //           lvl1.paintb(g, x1, y1);
+       //         break;
+       //     case (2):
+        //       lvl2.paintb(g, x1, y1);
+         //       break;
+     //       case(3):
+     //           lvl3.paintb(g,x1,y1);
+
+       // }
+
 //        switch (level){
 //            case (1):
 //                //lvl1(g);
