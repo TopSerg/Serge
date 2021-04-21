@@ -71,6 +71,11 @@ class Gomik{
         stena4[6] = new double[]{1788.0/1920, 1920.0/1920, 703.0/1080, 703.0/1080};
         stena4[7] = new double[]{1048.0/1920, 1160.0/1920, 762.0/1080, 703.0/1080};
         double[][] stena5 = new double[7][4];
+        stena5[0] = new double[]{0.0/1920, 57.0/1920, 850.0/1080, 782.0/1080};
+        stena5[1] = new double[]{330.0/1920, 417.0/1920, 658.0/1080, 633.0/1080};
+        stena5[2] = new double[]{417.0/1920, 765.0/1920, 633.0/1080, 633.0/1080};
+        stena5[3] = new double[]{1170.0/1920, 1558.0/1920, 685.0/1080, 723.0/1080};
+        stena5[4] = new double[]{1801.0/1920, 1913.0/1920, 781.0/1080, 847.0/1080};
         double[][] stena6 = new double[7][4];
         stena6[1] = new double[]{515.0/1920, 1503.0/1920, 755.0/1080, 755.0/1080};
         stena6[2] = new double[]{302.0/1920, 1503.0/1920, 693.0/1080, 693.0/1080};
@@ -98,7 +103,7 @@ class Gomik{
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
         item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg");
-        lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena6, next4);
+        lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item1);
         wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
         but = new Chel("but.png", 500,500,200,200,item1, mouse, 2);
