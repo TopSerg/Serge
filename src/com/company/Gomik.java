@@ -106,7 +106,6 @@ class Gomik{
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
         item2 = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol", null);
-        itm3 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", item2);
         item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg", item2);
         lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item1);
