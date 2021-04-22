@@ -14,6 +14,8 @@ public class Crovat {
     public Crovat(String str1, String str2, String needItem, int x, int y, int width, int height, Mouse mouse){
         img1 = new ImageIcon(str1).getImage();
         img2 = new ImageIcon(str2).getImage();
+        this.x = x;
+        this.y = y;
         this.width = width;
         this.height = height;
         this.needItem = needItem;

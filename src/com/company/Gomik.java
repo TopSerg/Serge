@@ -7,7 +7,7 @@ import javax.swing.*;
 
 class Gomik{
 
-    Image gnom = new ImageIcon("gnom.png").getImage();
+    Image gnom = new ImageIcon("ilu.png").getImage();
     Image bigdick = new ImageIcon("kebok.png").getImage();
     Image inv = new ImageIcon("Invent.png").getImage();
 
@@ -17,7 +17,9 @@ class Gomik{
 
     Item item1;
     Item item2;
-    Item itm3;
+    Item item3;
+    Item item4,item6,item7,item8;
+    Crovat item5;
 
     //Timer timer = new Timer(20, this);
 
@@ -34,7 +36,7 @@ class Gomik{
     String str = "";
     Level lvl1;
     Level lvl2, lvl3;
-    Level lvl4,lvl5;
+    Level lvl4,lvl5,lvl6;
     Level[] mas;
     Button button2;
     Crovat crv;
@@ -54,9 +56,9 @@ class Gomik{
         this.frame = frame;
         //timer.start();
         double[][] stena1 = new double[3][4];
-//        stena1[0] = new double[]{366.0/1920, 1920.0/1920, 746.0/1080, 746.0/1080};
-//        stena1[1] = new double[]{1035.0/1920, 1556.0/1920, 949.0/1080, 949.0/1080};
-//        stena1[2] = new double[]{1556.0/1920, 1866.0/1920, 949.0/1080, 644.0/1080};
+       // stena1[0] = new double[]{366.0/1920, 1920.0/1920, 700.0/1080, 700.0/1080};
+       // stena1[1] = new double[]{1035.0/1920, 1556.0/1920, 949.0/1080, 949.0/1080};
+       // stena1[2] = new double[]{1556.0/1920, 1866.0/1920, 949.0/1080, 644.0/1080};
         double[][] stena2 = new double[4][4];
         stena2[0] = new double[]{0, 145.0/1920, 892.0/1080, 553.0/1080};
         stena2[1] = new double[]{461.0/1920, 902.0/1920, 485.0/1080, 662.0/1080};
@@ -67,7 +69,7 @@ class Gomik{
         double[][] stena4 = new double[8][4];
         stena4[0] = new double[]{0, 48.0/1920, 950.0/1080, 906.0/1080};
         stena4[1] = new double[]{48.0/1920, 145.0/1920, 906.0/1080, 906.0/1080};
-        stena4[2] = new double[]{48.0/1920, 233.0/1920, 906.0/1080, 906.0/1080};
+
         stena4[3] = new double[]{233.0/1920, 622.0/1920, 906.0/1080, 703.0/1080};
         stena4[4] = new double[]{622.0/1920, 1439.0/1920, 703.0/1080, 703.0/1080};
         stena4[5] = new double[]{803.0/1920, 1048.0/1920, 762.0/1080, 762.0/1080};
@@ -93,8 +95,10 @@ class Gomik{
         next5[0] = new double[]{1619.0/1920, 620.0/1080, 1807.0/1920, 782.0/1080, 1, 300.0/1920,800.0/1080};
         next5[1] = new double[]{115.0/1920, 643.0/1080, 300.0/1920, 736.0/1080, 5, 1358.0/1920, 875.0/1080};
         next5[2] = new double[]{815.0/1920, 617.0/1080, 1105.0/1920, 685.0/1080, 3, 1574.0/1920, 867.0/1080};
-        double[][] next2 = new double[1][7];
+        double[][] next2 = new double[2][7];
         next2[0] = new double[]{963.0/1280, 306.0/720, 1164.0/1280, 417.0/720, 3, 50.0/1280, 650.0/720};
+        next2[1] = new double[]{441.0/1920, 612.0/1080, 547.0/1920, 752.0/1080, 6, 50.0/1280, 650.0/720};
+
 
         double[][] next3 = new double[2][7];
         next3[0] = new double[]{80.0/1920, 710.0/1080, 256.0/1920, 834.0/1080, 2, 1427.0/1920, 708.0/1080};
@@ -102,27 +106,45 @@ class Gomik{
 
         double[][] next6 = new double[2][7];
         next6[1] = new double[]{1440.0/1920, 720.0/1080, 1787.0/1920, 800.0/1080, 4, 303.0/1920, 852.0/1080};
+        double[][] next7 = new double[2][7];
+        next7[1] = new double[]{670.0/1920, 230.0/1080, 1279.0/1920, 891.0/1080, 2, 570.0/1920, 730.0/1080};
 
         bakpack = new Bakpack(frame, mouse, mouse1);
         gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
+        item8 = new Item("sloyka.png","sloyka",0,0,0,0,mouse1,4,"Lbe", null);
         item2 = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol", null);
-        item1 = new Item("but.png", "L_egg", 600, 100, 40, 50, mouse1,1, "R_egg", item2);
-        lvl1 = new Level("room5.jpg", "NO", frame, bakpack, 1, gnom1, mouse, stena1, next4);
-        lvl1.plusitem(item1);
-        wizard = new Chel("wizard.png", 0,0,200,200,item1, mouse, 1);
+        item1 = new Item("but.png", "L_egg", 700, 100, 40, 50, mouse1,122, "R_egg", item2);
+        item3 = new Item("sloyroom3.png","skor",700,490,150,40,mouse1,1,"L_egg", item8);
+        item5 = new Crovat("misca.png","sloyroomgost.png","korm",1100,620,105,40,mouse);
+        item4 = new Item("sloyroom4.png","skor",80,470,150,105,mouse1,4,"Lbe", null);
+        item6 = new Item("sloydog.png","korm",350,560,40,60,mouse1,4,"Lbe", null);
+
+        item7 = new Item("sloyroom33.png","eggsm",1000,500,100,100,mouse1,4,"Lbe", item8);
+
+        lvl1 = new Level("room55.jpg", "sloyroom5.png", frame, bakpack, 1, gnom1, mouse, stena1, next4);
+        lvl1.plusitem(item3);
+
+        wizard = new Chel("sloy3.png", 0,0,200,200,item1, mouse, 1);
         but = new Chel("but.png", 500,500,200,200,item1, mouse, 2);
         crv = new Crovat("head.png", "dick.png","L+R",500,500,100,200,mouse);
         lvl1.pluschel(wizard);
         lvl1.pluscrovat(crv);
         lvl2 = new Level("holl.jpg", "no", frame, bakpack, 2, gnom1, mouse, stena2, next2);
-        lvl3 = new Level("gostinaya.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
-        lvl4 = new Level("room3.jpg", "no", frame, bakpack, 4, gnom1, mouse, stena5, next5);
-        lvl5 = new Level("room4.jpg", "no", frame, bakpack, 5, gnom1, mouse, stena4, next6);
+        lvl3 = new Level("room20.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
+        lvl3.pluscrovat(item5);
+
+        lvl4 = new Level("room3.jpg", "sloy2.png", frame, bakpack, 4, gnom1, mouse, stena5, next5);
+        lvl4.plusitem(item7);
+        lvl5 = new Level("room40.jpg", "no", frame, bakpack, 5, gnom1, mouse, stena4, next6);
+        lvl5.plusitem(item4);
+        lvl6 = new Level("room6.jpg", "no", frame, bakpack, 6, gnom1, mouse, stena4, next7);
+        lvl3.plusitem(item6);
         pluslvl(lvl1);
         pluslvl(lvl2);
         pluslvl(lvl3);
         pluslvl(lvl4);
         pluslvl(lvl5);
+        pluslvl(lvl6);
     }
 
     public void pluslvl(Level level){
