@@ -92,7 +92,6 @@ public class Level {
         for (int i = 0; i < 5; i++){
             if (items[i] != null){
                 if (items[i].getName().equals("eggsm")){
-                    System.out.println(1);
                     items[i].paint(g);
                 }
             }
@@ -147,8 +146,11 @@ public class Level {
                 player.setXY(masas[i][5], masas[i][6]);
             }
         }
-        player.move(nx, ny, mas);
-        player.paint(g);
+        if (level != 6){
+            player.move(nx, ny, mas);
+            player.paint(g);
+        }
+
         paintf(g);
         if(level == 3){
             if (mouse.getx(3) > frame.getWidth()*1162.0/1920 && mouse.getx(3) < frame.getWidth()*1226.0/1920 && mouse.gety(3) > frame.getHeight()*134.0/1080 && mouse.gety(3) < frame.getHeight()*203.0/1080){

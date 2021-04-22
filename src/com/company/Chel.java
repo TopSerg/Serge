@@ -32,7 +32,7 @@ public class Chel {
     }
 
     public boolean begin(){
-        if (mouse.getx(1) > x &&mouse.getx(1) < x+width && mouse.gety(1) > y && mouse.gety(1) < y+high){
+        if (mouse.getx(1) > x &&mouse.getx(1) < x+width && mouse.gety(1) > y && mouse.gety(1) < y+high && mouse.isClik()){
             //System.out.println("21341234142");
             return true;
         }
