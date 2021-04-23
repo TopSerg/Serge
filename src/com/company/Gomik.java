@@ -19,7 +19,7 @@ class Gomik{
     Item item2;
     Item item3;
     Item item4,item6,item7,item8;
-    Crovat item5;
+    Crovat item5, item9, item10;
 
     //Timer timer = new Timer(20, this);
 
@@ -105,12 +105,14 @@ class Gomik{
         next3[1] = new double[]{1544.0/1920, 756.0/1080, 1838.0/1920, 794.0/1080, 4, 1081.0/1920, 697.0/1080};
 
         double[][] next6 = new double[2][7];
-        next6[1] = new double[]{1440.0/1920, 720.0/1080, 1787.0/1920, 800.0/1080, 4, 303.0/1920, 852.0/1080};
+        next6[1] = new double[]{1440.0/1920, 500.0/1080, 1787.0/1920, 800.0/1080, 4, 303.0/1920, 852.0/1080};
         double[][] next7 = new double[2][7];
         next7[1] = new double[]{670.0/1920, 230.0/1080, 1279.0/1920, 891.0/1080, 2, 570.0/1920, 730.0/1080};
 
         bakpack = new Bakpack(frame, mouse, mouse1);
-        gnom1 = new Player("gnom.png", x1, y1,  80,50, move);
+        gnom1 = new Player("gnom.png", x1, y1,  130,150, move);
+        item10 = new Crovat("plita1.png","plita2.png","sss",1093,427,150,210, mouse);
+        item9 = new Crovat("stir.png","ee.jpg","ssd",560,400,600, 300,mouse);
         item8 = new Item("sloyka.png","sloyka",0,0,0,0,mouse1,4,"Lbe", null);
         item2 = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol", null);
         item1 = new Item("but.png", "L_egg", 700, 100, 40, 50, mouse1,122, "R_egg", item2);
@@ -120,6 +122,7 @@ class Gomik{
         item6 = new Item("sloydog.png","korm",350,560,40,60,mouse1,4,"Lbe", null);
 
         item7 = new Item("sloyroom33.png","eggsm",1000,500,100,100,mouse1,4,"Lbe", item8);
+
 
         lvl1 = new Level("room55.jpg", "sloyroom5.png", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item3);
@@ -134,10 +137,12 @@ class Gomik{
         lvl3 = new Level("room20.jpg", "no", frame, bakpack, 3, gnom1, mouse, stena3, next3);
         lvl3.pluscrovat(item5);
 
-        lvl4 = new Level("room3.jpg", "sloy2.png", frame, bakpack, 4, gnom1, mouse, stena5, next5);
+        lvl4 = new Level("room300.jpg", "sloy2.png", frame, bakpack, 4, gnom1, mouse, stena5, next5);
         lvl4.plusitem(item7);
-        lvl5 = new Level("room40.jpg", "no", frame, bakpack, 5, gnom1, mouse, stena4, next6);
+        lvl4.pluscrovat(item10);
+        lvl5 = new Level("room400.jpg", "no", frame, bakpack, 5, gnom1, mouse, stena4, next6);
         lvl5.plusitem(item4);
+        lvl5.pluscrovat(item9);
         lvl6 = new Level("room6.jpg", "no", frame, bakpack, 6, gnom1, mouse, stena4, next7);
         lvl6.pluschel(but);
         lvl3.plusitem(item6);
@@ -299,7 +304,7 @@ class Gomik{
         //but.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
-        //System.out.println(frame.getWidth());
+      //  System.out.println(frame.getHeight());
         bigdick(g);
 //        g.setColor(new Color(255, 100, 100));
 //        g.drawRect((int) (457.0/1280*frame.getWidth()), 0/1280, (int)(747.0/1280*frame.getWidth())-(int) (457.0/1280*frame.getWidth()), (int)(35.0/720*frame.getHeight()));
