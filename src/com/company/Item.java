@@ -8,20 +8,24 @@ import javax.swing.*;
 class Item{
 
     Image item;
-    int x, y, wight, high, level = 0, a = 0, b = 0;
+    int x, y, wight, high;
+    double xq,yq,widthq, highq;
+    int level = 0, a = 0, b = 0;
     boolean find = false, isminus = false, isget = false, kaka = false, buka = false;
     String name;
     Mouse1 mouse1;
     String canmerge;
     Item itm;
+    JFrame frame;
 
-    public Item(String s, String name, int x, int y, int wight, int high, Mouse1 mouse1, int level, String canmerge, Item itm){
+    public Item(String s, String name, double x, double y, double wight, double high, Mouse1 mouse1, int level, String canmerge, Item itm, JFrame frame){
+        this.frame = frame;
         item = new ImageIcon(s).getImage();
         this.level = level;
-        this.x = x;
-        this.y = y;
-        this.wight = wight;
-        this.high = high;
+        this.xq = x;
+        this.yq = y;
+        this.widthq = wight;
+        this.highq = high;
         this.mouse1 = mouse1;
         this.name = name;
         this.canmerge = canmerge;
@@ -78,9 +82,18 @@ class Item{
         this.y = y;
         this.wight = wight;
         this.high = high;
+        this.xq = (double) x/frame.getWidth();
+        this.yq = (double) y/frame.getHeight();
+        this.widthq = (double) wight/frame.getWidth();
+        this.highq = (double) high/frame.getHeight();
     }
 
     public void paint(Graphics g){
+//        int xq,yq,widthq, highq;
+        x = (int) (xq*frame.getWidth());
+        y = (int) (yq*frame.getHeight());
+        wight = (int) (widthq*frame.getWidth());
+        high = (int) (highq*frame.getHeight());
         if (!isminus){
             g.drawImage(item, x, y, wight, high, null);
         }

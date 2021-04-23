@@ -6,11 +6,12 @@ import java.awt.*;
 public class Player {
 
     int x, y, high, width;
-    Image player;
+    Image player, playerl;
     Move move;
 
-    public Player(String s, int x, int y, int high, int width, Move move){
+    public Player(String s, String s2, int x, int y, int high, int width, Move move){
         player = new ImageIcon(s).getImage();
+        playerl = new ImageIcon(s2).getImage();
         this.x = x;
         this.y = y;
         this.high = high;
@@ -20,7 +21,12 @@ public class Player {
 
     public void paint(Graphics g){
         int[] a;
-        g.drawImage(player, x, y, width, high, null);
+        if (move.getDx() > 0) {
+            g.drawImage(player, x, y, width, high, null);
+        }
+        else{
+            g.drawImage(playerl, x, y, width, high, null);
+        }
 //        System.out.println(x + " " + y);
         a = move.getXY();
         x = a[0];

@@ -158,6 +158,14 @@ public class Move {
         y1 = y;
     }
 
+    public int getDx(){
+        return (int)xdiv;
+    }
+
+    public int getDy(){
+        return (int)ydiv;
+    }
+
     public boolean isNext(int[] mas){
         if (x1 > mas[0] && y1 > mas[1] && x1 < mas[2] && y1 < mas[3]){
             return true;

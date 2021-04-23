@@ -110,26 +110,26 @@ class Gomik{
         next7[1] = new double[]{670.0/1920, 230.0/1080, 1279.0/1920, 891.0/1080, 2, 570.0/1920, 730.0/1080};
 
         bakpack = new Bakpack(frame, mouse, mouse1);
-        gnom1 = new Player("gnom.png", x1, y1,  130,150, move);
-        item10 = new Crovat("plita1.png","plita2.png","sss",1093,427,150,210, mouse);
-        item9 = new Crovat("stir.png","ee.jpg","ssd",560,400,600, 300,mouse);
-        item8 = new Item("sloyka.png","sloyka",0,0,0,0,mouse1,4,"Lbe", null);
-        item2 = new Item("1.jpg","L+R",0,0,0,0,mouse1,132,"Stvol", null);
-        item1 = new Item("but.png", "L_egg", 700, 100, 40, 50, mouse1,122, "R_egg", item2);
-        item3 = new Item("sloyroom3.png","skor",700,490,150,40,mouse1,1,"L_egg", item8);
-        item5 = new Crovat("misca.png","sloyroomgost.png","korm",1100,620,105,40,mouse);
-        item4 = new Item("sloyroom4.png","skor",80,470,150,105,mouse1,4,"Lbe", null);
-        item6 = new Item("sloydog.png","korm",350,560,40,60,mouse1,4,"Lbe", null);
+        gnom1 = new Player("gnom.png","gnom2.png", x1, y1,  130,150, move);
+        item10 = new Crovat("plita1.png","plita2.png","sss",1093.0/1535,427.0/863,150.0/1535,210.0/863, mouse,frame);
+        item9 = new Crovat("stir.png","ee.jpg","ssd",560.0/1535,400.0/863,600.0/1535, 300.0/863,mouse,frame);
+        item8 = new Item("sloyka.png","sloyka",0.0/1535,0.0/863,0.0/1535,0.0/863,mouse1,4,"Lbe", null,frame);
+        item2 = new Item("1.jpg","L+R",0.0/1535,0.0/863,0.0/1535,0.0/863,mouse1,132,"Stvol", null,frame);
+        item1 = new Item("but.png", "L_egg", 700.0/1535, 100.0/863, 40.0/1535, 50.0/863, mouse1,122, "R_egg", item2,frame);
+        item3 = new Item("sloyroom3.png","skor",700.0/1535,490.0/863,150.0/1535,40.0/863,mouse1,1,"L_egg", item8,frame);
+        item5 = new Crovat("misca.png","sloyroomgost.png","korm",1100.0/1535,620.0/863,105.0/1535,40.0/863,mouse,frame);
+        item4 = new Item("sloyroom4.png","skor",80.0/1535,470.0/863,150.0/1535,105.0/863,mouse1,4,"Lbe", null,frame);
+        item6 = new Item("sloydog.png","korm",350.0/1535,560.0/863,40.0/1535,60.0/863,mouse1,4,"Lbe", null,frame);
 
-        item7 = new Item("sloyroom33.png","eggsm",1000,500,100,100,mouse1,4,"Lbe", item8);
+        item7 = new Item("sloyroom33.png","eggsm",1000.0/1535,500.0/863,100.0/1535,100.0/863,mouse1,4,"Lbe", item8,frame);
 
 
         lvl1 = new Level("room55.jpg", "sloyroom5.png", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item3);
 
-        wizard = new Chel("sloy3.png", 0,0,200,200,item1, mouse, 1);
-        but = new Chel("", 0,0,2000,2000,item1, mouse, 2);
-        crv = new Crovat("head.png", "dick.png","L+R",500,500,100,200,mouse);
+        wizard = new Chel("sloy3.png", 0.0/1535,0.0/863,200.0/1535,200.0/863,item1, mouse, 1,frame);
+        but = new Chel("", 0.0/1535,0.0/863,2000.0/1535,2000.0/863,item1, mouse, 2,frame);
+        crv = new Crovat("head.png", "dick.png","L+R",500.0/1535,500.0/863,100.0/1535,200.0/863,mouse,frame);
         lvl1.pluschel(wizard);
         lvl1.pluscrovat(crv);
         lvl1.plusitem(item1);

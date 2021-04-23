@@ -5,25 +5,33 @@ import java.awt.*;
 
 public class Chel {
 
-    int x, y, high, width, retur;
+    int x, y, high, width;
+    double xq,yq,widthq, highq;
+    int retur;
     Image img;
     Item needitem;
     Mouse mouse;
+    JFrame frame;
 
 
-    public Chel(String s, int x,int y,int high,int width, Item item, Mouse mouse, int retur){
+    public Chel(String s, double x, double y,double high,double width, Item item, Mouse mouse, int retur, JFrame frame){
         this.retur = retur;
         needitem = item;
         img = new ImageIcon(s).getImage();
-        this.x = x;
-        this.y = y;
-        this.high = high;
-        this.width = width;
+        this.frame = frame;
+        this.xq = x;
+        this.yq = y;
+        this.widthq = width;
+        this.highq = high;
         this.mouse = mouse;
     }
 
 
     public void paint(Graphics g){
+        x = (int) (xq*frame.getWidth());
+        y = (int) (yq*frame.getHeight());
+        width = (int) (widthq*frame.getWidth());
+        high = (int) (highq*frame.getHeight());
         g.drawImage(img, x, y, width, high, null);
     }
 

@@ -7,22 +7,29 @@ public class Crovat {
 
     Image img1, img2;
     int x,y,height,width;
+    double xq,yq,widthq, heightq;
     boolean comleted = false;
     String needItem;
     Mouse mouse;
+    JFrame frame;
 
-    public Crovat(String str1, String str2, String needItem, int x, int y, int width, int height, Mouse mouse){
+    public Crovat(String str1, String str2, String needItem, double x, double y, double width, double height, Mouse mouse, JFrame frame){
         img1 = new ImageIcon(str1).getImage();
         img2 = new ImageIcon(str2).getImage();
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        this.frame = frame;
+        this.xq = x;
+        this.yq = y;
+        this.widthq = width;
+        this.heightq = height;
         this.needItem = needItem;
         this.mouse = mouse;
     }
 
     public void paint(Graphics g){
+        x = (int) (xq*frame.getWidth());
+        y = (int) (yq*frame.getHeight());
+        width = (int) (widthq*frame.getWidth());
+        height = (int) (heightq*frame.getHeight());
         if (!comleted){
             g.drawImage(img1, x,y,width,height,null);
         }
