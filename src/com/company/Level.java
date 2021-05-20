@@ -102,7 +102,7 @@ public class Level {
                 if (!items[i].getName().equals("eggsm")){
                     items[i].paint(g);
                 }
-                items[i].find(x1, y1);
+                items[i].find();
                 if (items[i].getfind()) {
                     bakpack.plus(items[i]);
                     items[i] = null;

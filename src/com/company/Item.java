@@ -17,9 +17,11 @@ class Item{
     String canmerge;
     Item itm;
     JFrame frame;
+    Player player;
 
-    public Item(String s, String name, double x, double y, double wight, double high, Mouse1 mouse1, int level, String canmerge, Item itm, JFrame frame){
+    public Item(String s, String name, double x, double y, double wight, double high, Mouse1 mouse1, int level, String canmerge, Item itm, JFrame frame, Player player){
         this.frame = frame;
+        this.player = player;
         item = new ImageIcon(s).getImage();
         this.level = level;
         this.xq = x;
@@ -32,8 +34,8 @@ class Item{
         this.itm = itm;
     }
 
-    public void find(int x, int y){
-        if (x > this.x && x < this.x+wight && y > this.y && y < this.y+high && !find){
+    public void find(){
+        if (player.Go(x,y,wight,high)&&!find){
             find = true;
         }
     }

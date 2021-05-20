@@ -42,7 +42,7 @@ public class Display extends JPanel implements ActionListener{
         chapter1 = new Gomik(frame,mouse,mouse1);
         dsaper = new Dsaper(frame,mouse,mouse1);
         timer.start();
-        itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", null, frame);
+        itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", null, frame, null);
     }
 
     public void paint(Graphics g) {

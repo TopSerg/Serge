@@ -34,11 +34,24 @@ public class Player {
     }
 
     public boolean isNext(int[] mas){
-        return move.isNext(mas);
+        //return move.isNext(mas);
+        return Go(mas[0],mas[1],mas[2]-mas[0],mas[3]-mas[1]);
     }
 
     public void move (int dx, int dy, int mas[][]){
         move.moves(this, mas, dx, dy);
+    }
+
+    public boolean Go(int x, int y, int wight, int high){
+        boolean ans = false;
+        for (int i = this.x; i < this.x+this.width; i++){
+            for (int j = this.y; j < this.y+this.high; j++){
+                if (i > x && j > y && i < x+wight && j < y+high){
+                    ans = true;
+                }
+            }
+        }
+        return ans;
     }
 
     public void setXY(int x, int y){

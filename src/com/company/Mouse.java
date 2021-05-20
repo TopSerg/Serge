@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Mouse extends Frame implements MouseListener{
 
-   int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0, xegg = 0, yegg = 0;
+   int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0, xegg = 0, yegg = 0, xr, yr;
    boolean clik = false;
     Item item;
 
@@ -64,6 +64,10 @@ public class Mouse extends Frame implements MouseListener{
          i = 0;
          j = 0;
       }
+      if (but == 3){
+         xr = e.getX();
+         yr = e.getY();
+      }
       System.out.println(xm + " " + ym);
    }
    public void mouseReleased(MouseEvent e)
@@ -112,6 +116,10 @@ public class Mouse extends Frame implements MouseListener{
          default:
             return xm;
       }
+   }
+
+   public int getXr(){
+      return xr;
    }
    public int gety(int a){
       switch (a){
