@@ -20,6 +20,7 @@ class Gomik{
     Item item3;
     Item item4,item6,item7,item8;
     Crovat item5, item9, item10;
+    DeletAfter27May suj;
 
     //Timer timer = new Timer(20, this);
 
@@ -155,6 +156,7 @@ class Gomik{
         pluslvl(lvl4);
         pluslvl(lvl5);
         pluslvl(lvl6);
+        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1);
     }
 
     public void pluslvl(Level level){
@@ -307,6 +309,7 @@ class Gomik{
         //but.paint(g);
         bakpack.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
+        suj.paint(g);
       //  System.out.println(frame.getHeight());
         bigdick(g);
 //        g.setColor(new Color(255, 100, 100));
