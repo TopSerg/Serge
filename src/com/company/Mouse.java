@@ -7,7 +7,7 @@ import java.awt.event.*;
 public class Mouse extends Frame implements MouseListener{
 
    int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0, xegg = 0, yegg = 0, xr, yr;
-   boolean clik = false;
+   boolean clik = false, clik1 = false;
     Item item;
 
    public Mouse(){
@@ -59,6 +59,7 @@ public class Mouse extends Frame implements MouseListener{
       }
       if (but == 1){
          clik = true;
+         clik1 = true;
          this.xm = e.getX();
          this.ym = e.getY();
          i = 0;
@@ -68,7 +69,7 @@ public class Mouse extends Frame implements MouseListener{
          xr = e.getX();
          yr = e.getY();
       }
-      System.out.println(xm + " " + ym);
+      //System.out.println(xm + " " + ym);
    }
    public void mouseReleased(MouseEvent e)
    {
@@ -82,14 +83,28 @@ public class Mouse extends Frame implements MouseListener{
    public void mouseEntered(MouseEvent e)
    {
    }
-   public boolean isClik(){
-      if (clik){
-         clik = false;
-         return !clik;
+   public boolean isClik(int a){
+      switch (a) {
+         case (1):
+            if (clik) {
+               System.out.println(clik + " 1");
+               clik = false;
+               return !clik;
+            }
+            return clik;
+         case (2):
+            //System.out.println(clik1 + " 1");
+            if (clik1) {
+               clik1 = false;
+               return !clik1;
+            }
+            return clik1;
+         default:
+            return clik;
       }
-      return clik;
    }
    public int getx(int a){
+      //System.out.println(clik + " 1");
       switch (a){
          case(1):
             if (xm > x && ym > y){

@@ -242,7 +242,7 @@ public class sosibibu {
             v = true;
         }
         System.out.println(a+ " " + b);
-        if (mouse.isClik()){
+        if (mouse.isClik(1)){
             if (iter == 0) {
                 iter++;
                 if (a >= 0 && b >= 0) {
@@ -253,7 +253,7 @@ public class sosibibu {
                 }
             }
         }
-        if (!mouse.isClik()){
+        if (!mouse.isClik(1)){
             iter = 0;
         }
         if (turn == -1){

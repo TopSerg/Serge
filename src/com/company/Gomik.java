@@ -156,7 +156,7 @@ class Gomik{
         pluslvl(lvl4);
         pluslvl(lvl5);
         pluslvl(lvl6);
-        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1);
+        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1, "baba.png", "Ya.png", frame, mouse);
     }
 
     public void pluslvl(Level level){
@@ -308,8 +308,10 @@ class Gomik{
         //wizard.paint(g);
         //but.paint(g);
         bakpack.paint(g);
-        g.drawString(str,frame.getWidth()-200,10);
+        //mouse.isClik(1);
+        //System.out.println(mouse.isClik() + " 1");
         suj.paint(g);
+        g.drawString(str,frame.getWidth()-200,10);
       //  System.out.println(frame.getHeight());
         bigdick(g);
 //        g.setColor(new Color(255, 100, 100));
