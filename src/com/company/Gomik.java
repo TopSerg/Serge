@@ -128,6 +128,7 @@ class Gomik{
 
         lvl1 = new Level("room55.jpg", "sloyroom5.png", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item3);
+        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1, "baba.png", "Ya.png", frame, mouse);
 
         wizard = new Chel("sloy3.png", 0.0/1535,0.0/863,200.0/1535,200.0/863,item1, mouse, 1,frame);
         but = new Chel("", 0.0/1535,0.0/863,2000.0/1535,2000.0/863,item1, mouse, 2,frame);
@@ -150,13 +151,14 @@ class Gomik{
         lvl6 = new Level("room6.jpg", "no", frame, bakpack, 6, gnom1, mouse, stena4, next7);
         lvl6.pluschel(but);
         lvl3.plusitem(item6);
+        lvl1.plusqwerty(suj);
         pluslvl(lvl1);
         pluslvl(lvl2);
         pluslvl(lvl3);
         pluslvl(lvl4);
         pluslvl(lvl5);
         pluslvl(lvl6);
-        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1, "baba.png", "Ya.png", frame, mouse);
+
     }
 
     public void pluslvl(Level level){
@@ -310,7 +312,7 @@ class Gomik{
         bakpack.paint(g);
         //mouse.isClik(1);
         //System.out.println(mouse.isClik() + " 1");
-        suj.paint(g);
+        //suj.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
       //  System.out.println(frame.getHeight());
         bigdick(g);

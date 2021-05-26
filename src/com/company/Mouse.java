@@ -87,7 +87,7 @@ public class Mouse extends Frame implements MouseListener{
       switch (a) {
          case (1):
             if (clik) {
-               System.out.println(clik + " 1");
+               //System.out.println(clik + " 1");
                clik = false;
                return !clik;
             }

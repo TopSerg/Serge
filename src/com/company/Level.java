@@ -13,6 +13,7 @@ public class Level {
     Item [] items = new Item[5];
     Chel[] chels = new Chel[5];
     Crovat[] crovats = new Crovat[5];
+    DeletAfter27May[] qwerty = new DeletAfter27May[5];
     Bakpack bakpack;
     Player player;
     Mouse mouse;
@@ -53,6 +54,17 @@ public class Level {
         }
 
     }
+
+    public void plusqwerty(DeletAfter27May qwer){
+        for (int i = 0; i < 5; i++){
+            if (qwerty[i] == null && a){
+                qwerty[i] = qwer;
+                break;
+            }
+        }
+
+    }
+
     public void pluscrovat(Crovat crovat){
         for (int i = 0; i < 5; i++){
             if (crovats[i] == null && a){
@@ -159,6 +171,11 @@ public class Level {
                 }
             }
             //1920 1080
+        }
+        for (int i = 0; i < 5; i++){
+            if (qwerty[i] != null){
+                qwerty[i].paint(g);
+            }
         }
     }
 

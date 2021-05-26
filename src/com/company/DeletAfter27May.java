@@ -10,8 +10,10 @@ import java.util.Scanner;
 public class DeletAfter27May {
 
     int x,y,wight,high, iterator = 0;
+    int f = 0;
+    int q = 0, w =0, r = 0;
     boolean talk = false;
-    boolean a = true, b = false, asdf = false, asdf1 = false;
+    boolean a = true, b = false, asdf = true, asdf1 = false;
     File file;
     Image image, baba, deda;
     Player player;
@@ -20,6 +22,7 @@ public class DeletAfter27May {
     String sosiska = "";
     String vivod = "";
     Scanner sc = null;
+    int lsgnserljgn = 0;
 
     public DeletAfter27May(int x,int y,int wight,int high,String txt, String img, Player player, String img2, String img3, JFrame frame, Mouse mouse){
         this.x = x;
@@ -60,6 +63,7 @@ public class DeletAfter27May {
     }
 
     public void animation(Graphics g){
+        System.out.println(vivod);
         if (a) {
             try {
                 sc = new Scanner(file);
@@ -75,7 +79,6 @@ public class DeletAfter27May {
 //        if (sc.hasNext()) {
 //            g.drawString(sc.nextLine(), x, y+30);
 //        }
-        int q = 0, w =0, r = 0;
         boolean z = mouse.isClik(1);
         if (z){
             b = true;
@@ -83,7 +86,11 @@ public class DeletAfter27May {
         //while (!a){
         if (!a) {
             if (b) {
-                System.out.println("kslrgseuhguhsepruighsepr");
+                if (f == 0){
+                    vivod = "";
+                    f++;
+                }
+                //System.out.println("kslrgseuhguhsepruighsepr");
                 try {
                     //if (sc.hasNext()){
                     sosiska = sc.next();
@@ -93,27 +100,32 @@ public class DeletAfter27May {
                 } catch (NullPointerException e) {
                     System.out.println("TRASI");
                 }
-                System.out.println(sosiska);
+                //System.out.println(sosiska);
             }
 
 //            r++;
             if (sosiska.equals("/1/")) {
                 asdf = true;
-                asdf1 = false;
 //                g.drawImage(baba, 0, 0, frame.getWidth(), frame.getHeight(), null);
 //                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
-                vivod = "";
                 b = false;
+                f = 0;
             } else if (sosiska.equals("/2/")) {
-                asdf1 = true;
                 asdf = false;
 //                g.drawImage(deda, 0, 0, frame.getWidth(), frame.getHeight(), null);
 //                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
 //                g.drawString(vivod, 100, 100);
                 //System.out.println(vivod);
-                vivod = "";
                 b = false;
-            } else {
+                f = 0;
+            }
+            else if (sosiska.equals("/1")){
+                asdf1 = true;
+            }
+            else if (sosiska.equals("/2")){
+                asdf1 = true;
+            }
+                else {
                 if (q + sosiska.length() > 29) {
                     q = 0;
                     g.drawString(vivod, x + 2, y + 15 + 15 * (w));
@@ -126,14 +138,14 @@ public class DeletAfter27May {
             }
             if (asdf){
                 g.drawImage(baba, 0, 0, frame.getWidth(), frame.getHeight(), null);
-                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
+//                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
             }
-            else if(asdf1){
+            else{
                 g.drawImage(deda, 0, 0, frame.getWidth(), frame.getHeight(), null);
-                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
-                g.drawString(vivod, 100, 100);
+//                g.drawString(vivod, x + 2, y + 15 + 15 * (w));
+//                g.drawString(vivod, 100, 100);
             }
-            System.out.println(z + " " + sosiska);
+            //System.out.println(z + " " + sosiska);
 //            while (!z){
 //                z = mouse.isClik(1);
 //                if (z){
@@ -153,15 +165,18 @@ public class DeletAfter27May {
             //System.out.println(sc.next());
         }
         if (sosiska.equals("нахуй")) {
-            a = true;
+            lsgnserljgn++;
+            if (lsgnserljgn == 100) {
+                a = true;
+            }
         }
         else {
             a = false;
         }
-        g.drawString(vivod, 100, 100);
+        g.drawString(vivod, 60, 570);
         //System.out.println(vivod);
         if (a) {
-            g.drawString(vivod, 100, 100);
+            //g.drawString(vivod, 100, 100);
             sc.close();
         }
     }
