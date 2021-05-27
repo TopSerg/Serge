@@ -2,16 +2,15 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
-public class sosibibu {
+public class bibu {
 
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
     boolean v = false;
     int[][] pole = new int[12][12];
-    int[][] anal = new int[12][12];
+    int[][] analising = new int[12][12];
     int turn = 1, sum = 0, it = 0, iter = 0, xb=100, yb=100;
     Image pol = new ImageIcon("pole.png").getImage();
     Image x = new ImageIcon("x.png").getImage();
@@ -21,10 +20,11 @@ public class sosibibu {
     String img = "but.png";
     Button button;
 
-    public sosibibu(JFrame frame, Mouse mouse, Mouse1 mouse1) {
+    public bibu(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         this.frame = frame;
         this.mouse = mouse;
         this.mouse1 = mouse1;
+        //массив для объектов поля(крестики и нолики)
         pole[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[2] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
@@ -37,21 +37,21 @@ public class sosibibu {
         pole[9] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[10] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         pole[11] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[2] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[3] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[4] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[5] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[6] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[7] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[8] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[9] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[10] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
-        anal[11] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[2] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[3] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[4] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[5] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[6] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[7] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[8] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[9] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[10] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
+        analising[11] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
         button = new Button(0,0,50,250,img,mouse);
     }
-
+//метод, рассчитывающий стоимость каждой клетки
     public boolean win(){
         for (int i = 0; i < 12; i++){
             it = 0;
@@ -124,7 +124,7 @@ public class sosibibu {
         }
         return false;
     }
-
+// отрисовка крестиков и ноликов в соответствие с номером хода
     public void paint(Graphics g) {
         xb = frame.getWidth()/2-250;
         yb = frame.getHeight()/2-250;
@@ -147,7 +147,7 @@ public class sosibibu {
         }
         g.drawString(str,frame.getWidth()-200,10);
     }
-
+// метод, отвечающий за ход компьютера
     public void bot(){
         int w1 = -1, w2 = 1, g1 = -1, g2 = 1;
         for (int i = 0; i < 12; i++) {
@@ -180,8 +180,8 @@ public class sosibibu {
         int max = 0, mi = 0, mj = 0;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 12; j++) {
-                if (anal[i][j] > max){
-                    max = anal[i][j];
+                if (analising[i][j] > max){
+                    max = analising[i][j];
                     mi = i;
                     mj = j;
                 }
@@ -191,7 +191,7 @@ public class sosibibu {
         turn *= -1;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 12; j++) {
-                anal[i][j] = 0;
+                analising[i][j] = 0;
             }
         }
     }
@@ -199,10 +199,10 @@ public class sosibibu {
     public void made(int a, int b, int w, int g, int hod){
         int nw = 0, ng = 0;
         if((pole[a+w][b+g] == 1 || pole[a+w][b+g] == -1)&&w == 0 && g == 0){
-            //То ты лох
+            //То ты проиграл
         }
         else if (pole[a+w][b+g] == 0){
-            anal[a+w][b+g] += hod;
+            analising[a+w][b+g] += hod;
         }
         else{
             if (pole[a][b] == pole[a+w][b+g]){
@@ -235,7 +235,7 @@ public class sosibibu {
     }
 
 
-    public void chlenbolit() {
+    public void bol() {
         int b = Math.round((mouse.gety(2) - yb) / 39) - 1;
         int a = Math.round((mouse.getx(2) - xb) / 39) - 1;
         if (a == 0 && b == 0){
@@ -259,6 +259,7 @@ public class sosibibu {
         if (turn == -1){
             bot();
         }
+        // перезапуск игры
         if (button.Restart()){
             pole[0] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};
             pole[1] = new int[]{0,0,0,0,0,0,0,0,0,0,0,0};

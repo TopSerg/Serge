@@ -1,19 +1,18 @@
 package com.company;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 
 public class Level {
     Image background;
     Image frontground;
-    Image dick = new ImageIcon("kebok.png").getImage();
+    Image di = new ImageIcon("kebok.png").getImage();
     JFrame frame;
     Item [] items = new Item[5];
     Chel[] chels = new Chel[5];
     Crovat[] crovats = new Crovat[5];
-    DeletAfter27May[] qwerty = new DeletAfter27May[5];
+    Talk[] qwerty = new Talk[5];
     Bakpack bakpack;
     Player player;
     Mouse mouse;
@@ -55,7 +54,7 @@ public class Level {
 
     }
 
-    public void plusqwerty(DeletAfter27May qwer){
+    public void plusqwerty(Talk qwer){
         for (int i = 0; i < 5; i++){
             if (qwerty[i] == null && a){
                 qwerty[i] = qwer;
@@ -167,7 +166,7 @@ public class Level {
         if(level == 3){
             if (mouse.getx(3) > frame.getWidth()*1162.0/1920 && mouse.getx(3) < frame.getWidth()*1226.0/1920 && mouse.gety(3) > frame.getHeight()*134.0/1080 && mouse.gety(3) < frame.getHeight()*203.0/1080){
                 for (int i = 0; i < 100; i++){
-                    g.drawImage(dick,0,0,frame.getWidth(), frame.getHeight(), null);
+                    g.drawImage(di,0,0,frame.getWidth(), frame.getHeight(), null);
                 }
             }
             //1920 1080

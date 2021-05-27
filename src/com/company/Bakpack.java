@@ -25,7 +25,7 @@ class Bakpack{
         this.mouse1 = mouse1;
         mouse.Setxy(frame.getWidth()-340+13, frame.getHeight()+13-446);
     }
-
+//отрисовка предметов в объекте backpack
     public void paint(Graphics g){
         Item item = null;
         g.drawImage(inv, frame.getWidth()-1000, frame.getHeight()-720+yi, 1000, 500,null);
@@ -56,7 +56,7 @@ class Bakpack{
             }
         }
     }
-
+//передвижение предметов из рюкзака
     public void move(int xm1, int ym1){
         if (xm1 > frame.getWidth()-340 && ym1 > frame.getHeight()-446+yi&&yi > 200){
             a = true;
@@ -86,7 +86,7 @@ class Bakpack{
             errorbf = true;
         }
     }
-
+//удаление предметов из рюкзака при сложении
     public void minus(){
         for (int i = 0; i < 20; i++){
             if (mouse.getx(2) > 880+65*i && mouse.getx(2) < 880+65*i+30*40/50 && mouse.gety(2) < yi+277 && mouse.gety(2) > yi+277+40 && invop){

@@ -1,4 +1,4 @@
-package com.company.vzlomzopy;
+package com.company.vzlom;
 
 import com.company.Mouse;
 
@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Buttonvz {
     int x, y, hight, width, number;
-    char puck;
+    char pur;
     int q = 0;
     boolean clik = false, isopen = false, flagok = false;
     Image image, image1, image2;
@@ -20,7 +20,7 @@ public class Buttonvz {
         this.width = width;
         this.mouse = mouse;
         number = (int) (str3.toCharArray()[0])-48;
-        puck = str3.toCharArray()[0];
+        pur = str3.toCharArray()[0];
         image = new ImageIcon(str1).getImage();
         image1 = new ImageIcon(str2).getImage();
         image2 = new ImageIcon(str3).getImage();
@@ -40,7 +40,7 @@ public class Buttonvz {
 
     public void paint(Graphics g){
         Clicked();
-        Pukpiska();
+        Puf();
         if (!isopen){
             g.drawImage(image1, x, y, width, hight, null);
         }
@@ -60,14 +60,14 @@ public class Buttonvz {
         }
     }
 
-    public void Pukpiska(){
+    public void Puf(){
         if (clik){
             isopen = true;
         }
     }
 
     public char getNumber(){
-        return puck;
+        return pur;
     }
 
 

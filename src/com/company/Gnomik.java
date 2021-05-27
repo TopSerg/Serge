@@ -1,14 +1,13 @@
 package com.company;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 //import xo_anal.*;
 
-class Gomik{
+class Gnnomik {
 
     Image gnom = new ImageIcon("ilu.png").getImage();
-    Image bigdick = new ImageIcon("kebok.png").getImage();
+    Image big = new ImageIcon("kebok.png").getImage();
     Image inv = new ImageIcon("Invent.png").getImage();
 
     Player gnom1;
@@ -20,7 +19,7 @@ class Gomik{
     Item item3;
     Item item4,item6,item7,item8;
     Crovat item5, item9, item10;
-    DeletAfter27May suj;
+    Talk suj;
 
     //Timer timer = new Timer(20, this);
 
@@ -46,7 +45,7 @@ class Gomik{
     Chel but;
 
 
-    public Gomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
+    public Gnnomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
 
         mas = new Level[20];
         move = new Move(mouse, speed, x1, y1);
@@ -81,7 +80,8 @@ class Gomik{
         stena5[0] = new double[]{0.0/1920, 57.0/1920, 850.0/1080, 782.0/1080};
         stena5[1] = new double[]{330.0/1920, 417.0/1920, 658.0/1080, 633.0/1080};
         stena5[2] = new double[]{417.0/1920, 765.0/1920, 633.0/1080, 633.0/1080};
-        stena5[3] = new double[]{1170.0/1920, 1558.0/1920, 685.0/1080, 723.0/1080};
+        stena5[3] = new double[]{1170.0/1920, 1200.0/1920, 685.0/1080, 600.0/1080};
+        stena5[5] = new double[]{1170.0/1920, 1558.0/1920, 685.0/1080, 723.0/1080};
         stena5[4] = new double[]{1801.0/1920, 1913.0/1920, 781.0/1080, 847.0/1080};
         double[][] stena6 = new double[7][4];
         stena6[1] = new double[]{515.0/1920, 1503.0/1920, 755.0/1080, 755.0/1080};
@@ -117,7 +117,7 @@ class Gomik{
         item9 = new Crovat("stir.png","stir2.png","skort",2.0/1535,480.0/863,300.0/1535, 350.0/863,mouse,frame);
         item8 = new Item("sloyka.png","sloyka",0.0/1535,0.0/863,0.0/1535,0.0/863,mouse1,4,"", null,frame,gnom1);
         item2 = new Item("1.jpg","L+R",0.0/1535,0.0/863,0.0/1535,0.0/863,mouse1,132,"Stvol", null,frame,gnom1);
-        item1 = new Item("but.png", "L_egg", 700.0/1535, 100.0/863, 40.0/1535, 50.0/863, mouse1,122, "R_egg", item2,frame,gnom1);
+        //item1 = new Item("but.png", "L_egg", 700.0/1535, 100.0/863, 40.0/1535, 50.0/863, mouse1,122, "R_egg", item2,frame,gnom1);
         item3 = new Item("sloyroom3.png","skor",700.0/1535,490.0/863,150.0/1535,40.0/863,mouse1,1,"eggsm", item8,frame,gnom1);
         item5 = new Crovat("misca.png","sloyroomgost.png","korm",1100.0/1535,620.0/863,105.0/1535,40.0/863,mouse,frame);
         item4 = new Item("sloyroom4.png","skort",80.0/1535,390.0/863,150.0/1535,105.0/863,mouse1,4,"Lbe", null,frame,gnom1);
@@ -128,11 +128,11 @@ class Gomik{
 
         lvl1 = new Level("room55.jpg", "sloyroom5.png", frame, bakpack, 1, gnom1, mouse, stena1, next4);
         lvl1.plusitem(item3);
-        suj = new DeletAfter27May(500,500,100,100,"Textsujet.txt","Talk.png", gnom1, "baba.png", "Ya.png", frame, mouse);
+        suj = new Talk(500,500,100,100,"Textsujet.txt","Talk.png", gnom1, "baba.png", "Ya.png", frame, mouse);
 
         wizard = new Chel("sloy3.png", 0.0/1535,0.0/863,200.0/1535,200.0/863,item1, mouse, 1,frame);
         but = new Chel("", 0.0/1535,0.0/863,2000.0/1535,2000.0/863,item1, mouse, 2,frame);
-        crv = new Crovat("head.png", "dick.png","L+R",500.0/1535,500.0/863,100.0/1535,200.0/863,mouse,frame);
+    //    crv = new Crovat("head.png", "dick.png","L+R",500.0/1535,500.0/863,100.0/1535,200.0/863,mouse,frame);
         lvl1.pluschel(wizard);
         lvl1.pluscrovat(crv);
         lvl1.plusitem(item1);
@@ -178,9 +178,9 @@ class Gomik{
     }
 
     //Пасхалка
-    public void bigdick(Graphics g){
+    public void big(Graphics g){
         if (find){
-            g.drawImage(bigdick, xd, yd, 100, 100, null);
+            g.drawImage(big, xd, yd, 100, 100, null);
             i++;
             if (i == 1){
                 find = false;
@@ -315,7 +315,7 @@ class Gomik{
         //suj.paint(g);
         g.drawString(str,frame.getWidth()-200,10);
       //  System.out.println(frame.getHeight());
-        bigdick(g);
+        big(g);
 //        g.setColor(new Color(255, 100, 100));
 //        g.drawRect((int) (457.0/1280*frame.getWidth()), 0/1280, (int)(747.0/1280*frame.getWidth())-(int) (457.0/1280*frame.getWidth()), (int)(35.0/720*frame.getHeight()));
         //TestStena(g);

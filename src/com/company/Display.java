@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.vzlomzopy.Dsaper;
+import com.company.vzlom.Dsaper;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -28,8 +28,8 @@ public class Display extends JPanel implements ActionListener{
 //    String img = "but.png";
 //    Button button;
 //
-    sosibibu xo;
-    Gomik chapter1;
+    bibu xo;
+    Gnnomik chapter1;
     int chapter = 0;
     Item itm2;
 
@@ -38,8 +38,8 @@ public class Display extends JPanel implements ActionListener{
         this.mouse = mouse;
         this.mouse1 = mouse1;
         //b = new BallGame();
-        xo = new sosibibu(frame, mouse, mouse1);
-        chapter1 = new Gomik(frame,mouse,mouse1);
+        xo = new bibu(frame, mouse, mouse1);
+        chapter1 = new Gnnomik(frame,mouse,mouse1);
         dsaper = new Dsaper(frame,mouse,mouse1);
         timer.start();
         itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", null, frame, null);
@@ -113,7 +113,7 @@ public class Display extends JPanel implements ActionListener{
             case (1):
                 if (!sanya){
                     d = true;
-                    xo.chlenbolit();
+                    xo.bol();
                 }
                 else {
                     chapter = 0;

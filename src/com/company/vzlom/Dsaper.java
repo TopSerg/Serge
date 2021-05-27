@@ -1,4 +1,4 @@
-package com.company.vzlomzopy;
+package com.company.vzlom;
 
 
 import com.company.Mouse;
@@ -6,16 +6,14 @@ import com.company.Mouse1;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Dsaper{
 
     JFrame frame;
     Mouse mouse;
     Mouse1 mouse1;
-    String but = "kakapress.jpg", but0 = "kaka.jpg", but1 = "1.jpg", but2 = "2.jpg", but3 = "3.jpg", but4 = "4.jpg", but5 = "5.jpg", but6 = "6.jpg", but7 = "7.jpg", but8 = "8.jpg", but9 = "9.jpg", minet = "minet.jpg", def = "def.jpg";
-    Buttonvz[][] buttons = new com.company.vzlomzopy.Buttonvz[20][20];
+    String but = "kakapress.jpg", but0 = "kaka.jpg", but1 = "1.jpg", but2 = "2.jpg", but3 = "3.jpg", but4 = "4.jpg", but5 = "5.jpg", but6 = "6.jpg", but7 = "7.jpg", but8 = "8.jpg", but9 = "9.jpg", but10 = "net.jpg", def = "def.jpg";
+    Buttonvz[][] buttons = new com.company.vzlom.Buttonvz[20][20];
     com.company.Button b;
     Image wini = new ImageIcon("win.png").getImage();
     Image losi = new ImageIcon("lose.png").getImage();
@@ -52,37 +50,37 @@ public class Dsaper{
             for (int e = 0; e < 20; e++){
                 switch (pole[j][e]){
                     case (1):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but1,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but1,mouse);
                         break;
                     case (2):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but2,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but2,mouse);
                         break;
                     case (3):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but3,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but3,mouse);
                         break;
                     case (4):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but4,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but4,mouse);
                         break;
                     case (5):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but5,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but5,mouse);
                         break;
                     case (6):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but6,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but6,mouse);
                         break;
                     case (7):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but7,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but7,mouse);
                         break;
                     case (8):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but8,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but8,mouse);
                         break;
                     case (9):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,but9,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,but9,mouse);
                         break;
                     case (-1):
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,minet,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0, but10,mouse);
                         break;
                     default:
-                        buttons[j][e] = new com.company.vzlomzopy.Buttonvz(j*20, e*20, 20,20,but,but0,def,mouse);
+                        buttons[j][e] = new com.company.vzlom.Buttonvz(j*20, e*20, 20,20,but,but0,def,mouse);
                         break;
                 }
             }
@@ -95,7 +93,7 @@ public class Dsaper{
             pole[a+w][b+g]++;
         }
         else{
-            //то ты все равно лох
+            
         }
     }
 
