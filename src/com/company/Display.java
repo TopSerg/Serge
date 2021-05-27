@@ -7,8 +7,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+//класс картинки, встающей в рамку
 public class Display extends JPanel implements ActionListener{
 
+
+    //задание необходимых переменных
     Timer timer = new Timer(20, this);
     Mouse mouse;
     Mouse1 mouse1;
@@ -33,6 +36,7 @@ public class Display extends JPanel implements ActionListener{
     int chapter = 0;
     Item itm2;
 
+    //конструктор
     public Display(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         this.frame = frame;
         this.mouse = mouse;
@@ -45,6 +49,7 @@ public class Display extends JPanel implements ActionListener{
         itm2 = new Item("l_egg.png", "R_egg", 0,0,0,0,mouse1,0, "L_egg", null, frame, null);
     }
 
+    //класс отрисовки
     public void paint(Graphics g) {
         switch (chapter){
             case(0):
@@ -91,6 +96,7 @@ public class Display extends JPanel implements ActionListener{
 ////        }
     }
 
+    //класс таймера
     @Override
     public void actionPerformed(ActionEvent e) {
         //System.out.println(1);

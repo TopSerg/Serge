@@ -4,8 +4,9 @@ import com.company.Mouse;
 
 import javax.swing.*;
 import java.awt.*;
-
+//класс кнопки для сапера
 public class Buttonvz {
+    //задание необходимых переменных
     int x, y, hight, width, number;
     char pur;
     int q = 0;
@@ -13,6 +14,7 @@ public class Buttonvz {
     Image image, image1, image2;
     Mouse mouse;
 
+    //конструктор класса
     public Buttonvz(int x,int y,int hight,int width, String str1, String str2, String str3, Mouse mouse){
         this.x = x;
         this.y = y;
@@ -26,6 +28,7 @@ public class Buttonvz {
         image2 = new ImageIcon(str3).getImage();
     }
 
+    //метод отработки нажатия на кнопку
     public void Clicked(){
         if (mouse.getx(3) > x && mouse.getx(3) < x+width && mouse.gety(3) > y && mouse.gety(3) < y+hight){
             if (mouse.getBut() == 3){
@@ -38,6 +41,7 @@ public class Buttonvz {
         }
     }
 
+    //метод отрисовки
     public void paint(Graphics g){
         Clicked();
         Puf();
@@ -60,17 +64,19 @@ public class Buttonvz {
         }
     }
 
+    //открытие клетки
     public void Puf(){
         if (clik){
             isopen = true;
         }
     }
 
+    //возвращает номер клетки
     public char getNumber(){
         return pur;
     }
 
-
+    //возвращает открыта ли клетка
     public boolean IsOpen(){
         return isopen;
     }

@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Talk {
 
+    //задание необходимых переменных
     int x,y,wight,high, iterator = 0;
     int f = 0;
     int q = 0, w =0, r = 0;

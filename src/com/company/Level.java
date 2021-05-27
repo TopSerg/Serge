@@ -4,7 +4,9 @@ import java.awt.*;
 
 import javax.swing.*;
 
+//класс уровня
 public class Level {
+    //задание необходимых переменных
     Image background;
     Image frontground;
     Image di = new ImageIcon("kebok.png").getImage();
@@ -25,6 +27,7 @@ public class Level {
     boolean a = true;
     static boolean nextlvl = false;
 
+    //конструктор
     public Level(String sback, String sfront, JFrame f, Bakpack b, int lvl, Player player, Mouse mouse, double[][] stena, double[][] next){
         this.stena = stena;
         this.next = next;
@@ -44,6 +47,7 @@ public class Level {
         this.player = player;
     }
 
+    //добавление предмета на уровень
     public void plusitem(Item item){
         for (int i = 0; i < 5; i++){
             if (items[i] == null && a){
@@ -54,6 +58,7 @@ public class Level {
 
     }
 
+    //добавление  сюжета
     public void plusqwerty(Talk qwer){
         for (int i = 0; i < 5; i++){
             if (qwerty[i] == null && a){
@@ -64,6 +69,7 @@ public class Level {
 
     }
 
+    //добавление предмета
     public void pluscrovat(Crovat crovat){
         for (int i = 0; i < 5; i++){
             if (crovats[i] == null && a){
@@ -74,6 +80,7 @@ public class Level {
 
     }
 
+    //добавление предмета
     public void pluschel(Chel chel){
         for (int i = 0; i < 5; i++){
             if (chels[i] == null && a){
@@ -84,10 +91,7 @@ public class Level {
 
     }
 
-    public void script(){
-
-    }
-
+    //метод возвращающий нужные переменные
     public int getNext(){
         for (int i = 0 ; i < 5; i++){
             if (chels[i] != null) {
@@ -99,6 +103,7 @@ public class Level {
         return 0;
     }
 
+    //метод отрисовки заднего фона
     public void paintb(Graphics g, int x1,int y1){
         for (int i = 0; i < 5; i++){
             if (items[i] != null){
@@ -178,16 +183,19 @@ public class Level {
         }
     }
 
+    //метод отрисовки переднего фона
     public void paintf(Graphics g){
         if (frontground != null){
             g.drawImage(frontground, 0, 0, frame.getWidth(), frame.getHeight(), null);
         }
     }
 
+    //метод возвращающий нужные переменные
     public static int Nextlvl(){
         return nlvl;
     }
 
+    //метод возвращающий нужные переменные
     public int getLevel(){
         return level;
     }

@@ -7,8 +7,10 @@ import com.company.Mouse1;
 import javax.swing.*;
 import java.awt.*;
 
+//класс сапера
 public class Dsaper{
 
+    //задание необходимых переменных
     JFrame frame;
     Mouse mouse;
     Mouse1 mouse1;
@@ -21,6 +23,7 @@ public class Dsaper{
     boolean lose = false, win = false;
     int[][] pole = new int[20][20];
 
+    //конструктор класса
     public Dsaper(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         this.mouse1 = mouse1;
         this.mouse = mouse;
@@ -87,6 +90,8 @@ public class Dsaper{
         }
 
     }
+
+    //прибавление 1 к клетке вокруг мины
     public void made1(int a, int b, int w, int g, int hod){
         int nw = 0, ng = 0;
         if (pole[a+w][b+g] != -1){
@@ -97,6 +102,7 @@ public class Dsaper{
         }
     }
 
+    //задание поля
     public void made(){
         int a = 0;
         int q;
@@ -143,6 +149,7 @@ public class Dsaper{
         }
     }
 
+    //отладочная функция
     public void openAll(){
         for (int j = 0; j < 20; j++){
             for (int e = 0; e < 20; e++){
@@ -151,6 +158,7 @@ public class Dsaper{
         }
     }
 
+    //проверка закончена ли игра
     public void win(){
         int a = 0;
         if (buttons[19][19] != null) {
@@ -170,6 +178,7 @@ public class Dsaper{
         }
     }
 
+    //метод отрисовки
     public void paint(Graphics g) {
         //g.drawImage(wini, 0, 0, frame.getWidth(), frame.getHeight(), null);
         if (win){
@@ -215,6 +224,7 @@ public class Dsaper{
         }
     }
 
+    //то что передается в таймер
     public void actionPerformed() {
         win();
     }

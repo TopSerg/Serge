@@ -4,8 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 //import xo_anal.*;
 
+//класс основной игры
 class Gnnomik {
 
+    //задание необходимых переменных
     Image gnom = new ImageIcon("ilu.png").getImage();
     Image big = new ImageIcon("kebok.png").getImage();
     Image inv = new ImageIcon("Invent.png").getImage();
@@ -45,6 +47,7 @@ class Gnnomik {
     Chel but;
 
 
+    //конструктор
     public Gnnomik(JFrame frame, Mouse mouse, Mouse1 mouse1) {
 
         mas = new Level[20];
@@ -161,10 +164,12 @@ class Gnnomik {
 
     }
 
+    //добавление уровней
     public void pluslvl(Level level){
         mas[level.getLevel()-1] = level;
     }
 
+    //добавлеение предметов
     public void Itemp(Item item){
         bakpack.plus(item);
     }
@@ -240,75 +245,9 @@ class Gnnomik {
         }
     }
 
-    //Перемещение разделение по локациям
-//    public void mov(int x, int y){
-//        switch (level){
-//            case (1):
-//                move1(x,y);
-//                break;
-//            case (2):
-//                move2(x,y);
-//                break;
-//        }
-//    }
-
-    //Перемещение (вычисления + скорость)
-//    public void div(){
-//        if (dx != 0 && dy != 0){
-//            divx = dx;
-//            divy = dy;
-//        }
-//        if (divx != 0){
-//            mov(speed*divx/Math.abs(divx),0);
-//
-//            if ((divx-speed*divx/Math.abs(divx))*divx/Math.abs(divx) < 0){
-//                divx = 0;
-//            }
-//            else {
-//                divx -= speed*divx/Math.abs(divx);
-//            }
-//        }
-//        if (divy != 0){
-//            mov(0,speed*divy/Math.abs(divy));
-//            if ((divy-speed*divy/Math.abs(divy))*divy/Math.abs(divy) < 0){
-//                divy = 0;
-//            }
-//            else {
-//                divy -= speed*divy/Math.abs(divy);
-//            }
-//        }
-//    }
-
     // Метод отрисовки
     public void paint(Graphics g) {
-        //System.out.println(frame.getWidth() + " " + frame.getHeight());
-      //  switch (level){
-        //    case (1):
-     //           //lvl1(g);
-     //           lvl1.paintb(g, x1, y1);
-       //         break;
-       //     case (2):
-        //       lvl2.paintb(g, x1, y1);
-         //       break;
-     //       case(3):
-     //           lvl3.paintb(g,x1,y1);
-
-       // }
-
-//        switch (level){
-//            case (1):
-//                //lvl1(g);
-//                lvl1.paintb(g, x1, y1);
-//                break;
-//            case (2):
-//                lvl2.paintb(g, x1, y1);
-//                break;
-//            case(3):
-//                lvl3.paintb(g,x1,y1);
-//        }
         mas[level-1].paintb(g,x1,y1);
-        //wizard.paint(g);
-        //but.paint(g);
         bakpack.paint(g);
         //mouse.isClik(1);
         //System.out.println(mouse.isClik() + " 1");
@@ -321,6 +260,7 @@ class Gnnomik {
         //TestStena(g);
     }
 
+    //вывод уровня
     public int start(){
 //        switch (level){
 //            case (1):

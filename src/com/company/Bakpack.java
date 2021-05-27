@@ -5,8 +5,10 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+//класс рюкзака
 class Bakpack{
 
+    //задание необходимых переменных
     Image inv = new ImageIcon("Invent.png").getImage();
 
     JFrame frame;
@@ -19,6 +21,7 @@ class Bakpack{
     int yi = 390;
     boolean a = false, invop = false, errorbf = false, b = true;
 
+    //конструктор
     public Bakpack(JFrame frame, Mouse mouse, Mouse1 mouse1){
         this.frame = frame;
         this.mouse = mouse;
@@ -76,6 +79,7 @@ class Bakpack{
         }
     }
 
+    //добавление предметов в рюкзак
     public void plus(Item itm){
         for (int i = 0; i < 20; i++){
             if (mas[i] == null && b){

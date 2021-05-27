@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Player {
 
+    //задание необходимых переменных
     int x, y, high, width;
     Image player, playerl;
     Move move;

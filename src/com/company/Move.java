@@ -2,7 +2,9 @@ package com.company;
 
 import java.awt.*;
 
+//клас перемещений
 public class Move {
+    //задание необходимых переменных
     int level = 1, x1 = 0, y1 = 0, dx, dy, divx, divy, speed, px, py;
     int[][] stena;
     int[] next;
@@ -10,7 +12,7 @@ public class Move {
     boolean a = true;
     Mouse mouse;
 
-
+    //конструктор
     public Move(Mouse mouse, int speed, int x1, int y1){
         this.mouse = mouse;
         this.speed = speed;
@@ -18,6 +20,7 @@ public class Move {
         this.y1 = y1;
     }
 
+    //метод движения
     public void moves(Player player, int[][] mas, int qx, int qy){
         stena = mas;
         player.x = x1;
@@ -70,6 +73,7 @@ public class Move {
         div(nx, ny);
     }
 
+    //метод движения
     public void div(int x, int y){
         dx = x - x1;
         dy = y - y1;
@@ -125,6 +129,7 @@ public class Move {
         move1((int)xdiv, (int)ydiv);
     }
 
+    //метод движения
     public void move1(int x, int y) {
         int b1;
         double k1 = 1;
@@ -146,6 +151,7 @@ public class Move {
         y1 += y;
     }
 
+    //вывод координат
     public int[] getXY() {
             int[] ans = new int[2];
             ans[0] = x1;
@@ -153,11 +159,13 @@ public class Move {
             return ans;
     }
 
+    //задание координат
     public void setXY(int x, int y){
         x1 = x;
         y1 = y;
     }
 
+    //метод возвращающий нужные переменные
     public int getDx(){
         return (int)xdiv;
     }
@@ -166,6 +174,7 @@ public class Move {
         return (int)ydiv;
     }
 
+    //метод возвращающий нужные переменные
     public boolean isNext(int[] mas){
         if (x1 > mas[0] && y1 > mas[1] && x1 < mas[2] && y1 < mas[3]){
             return true;

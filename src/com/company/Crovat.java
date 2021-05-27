@@ -3,8 +3,10 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
+//класс предмета, с которым можно взаимодействовать
 public class Crovat {
 
+    //задание необходимых переменных
     Image img1, img2;
     int x,y,height,width;
     double xq,yq,widthq, heightq;
@@ -13,6 +15,7 @@ public class Crovat {
     Mouse mouse;
     JFrame frame;
 
+    //конструктор
     public Crovat(String str1, String str2, String needItem, double x, double y, double width, double height, Mouse mouse, JFrame frame){
         img1 = new ImageIcon(str1).getImage();
         img2 = new ImageIcon(str2).getImage();
@@ -25,6 +28,7 @@ public class Crovat {
         this.mouse = mouse;
     }
 
+    //отрисовка
     public void paint(Graphics g){
         x = (int) (xq*frame.getWidth());
         y = (int) (yq*frame.getHeight());
@@ -39,6 +43,7 @@ public class Crovat {
         Complet();
     }
 
+    //проверка выполнено ли условие данного предмета
     public void Complet(){
         if (mouse.getx(3) > x && mouse.gety(3) > y && mouse.getx(3) < x+width && mouse.gety(3) < y+height && mouse.HasItem()){
             if (mouse.getItem().getName().equals(needItem)){

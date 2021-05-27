@@ -3,8 +3,10 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
+//класс крестики-нолики
 public class bibu {
 
+    //задание необходимых переменных
     Mouse mouse;
     Mouse1 mouse1;
     JFrame frame;
@@ -20,6 +22,7 @@ public class bibu {
     String img = "but.png";
     Button button;
 
+    //конструктор
     public bibu(JFrame frame, Mouse mouse, Mouse1 mouse1) {
         this.frame = frame;
         this.mouse = mouse;
@@ -196,6 +199,7 @@ public class bibu {
         }
     }
 
+    //вспомогательный метод для расчета клеток
     public void made(int a, int b, int w, int g, int hod){
         int nw = 0, ng = 0;
         if((pole[a+w][b+g] == 1 || pole[a+w][b+g] == -1)&&w == 0 && g == 0){
@@ -227,6 +231,7 @@ public class bibu {
         }
     }
 
+    //выход из программы
     public boolean exit(){
         if (button.Restart()||v){
             return true;
@@ -235,6 +240,7 @@ public class bibu {
     }
 
 
+    //то что передается в таймер
     public void bol() {
         int b = Math.round((mouse.gety(2) - yb) / 39) - 1;
         int a = Math.round((mouse.getx(2) - xb) / 39) - 1;

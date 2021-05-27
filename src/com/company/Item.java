@@ -5,8 +5,10 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+//класс предмета
 class Item{
 
+    //задание необходимых переменных
     Image item;
     int x, y, wight, high;
     double xq,yq,widthq, highq;
@@ -19,6 +21,7 @@ class Item{
     JFrame frame;
     Player player;
 
+    //конструктор
     public Item(String s, String name, double x, double y, double wight, double high, Mouse1 mouse1, int level, String canmerge, Item itm, JFrame frame, Player player){
         this.frame = frame;
         this.player = player;
@@ -34,12 +37,14 @@ class Item{
         this.itm = itm;
     }
 
+    //находка предмета
     public void find(){
         if (player.Go(x,y,wight,high)&&!find){
             find = true;
         }
     }
 
+    //все действия с предметом
     public void found(Mouse mouse){
         if (mouse1.getx1() >= this.x && mouse1.getx1() < this.x+wight && mouse1.gety1() >= this.y && mouse1.gety1() < this.y+high && find){
             kaka = true;
@@ -71,6 +76,7 @@ class Item{
         }
     }
 
+    //серия булевых методов возвращающих нужные величины
     public boolean IsGet(){
         return isget;
     }
@@ -79,6 +85,7 @@ class Item{
         return find;
     }
 
+    //задание координат предмета
     public void SetXY(int x, int y, int high, int wight){
         this.x = x;
         this.y = y;
@@ -90,6 +97,7 @@ class Item{
         this.highq = (double) high/frame.getHeight();
     }
 
+    //метод отрисовки
     public void paint(Graphics g){
 //        int xq,yq,widthq, highq;
         x = (int) (xq*frame.getWidth());
@@ -107,6 +115,7 @@ class Item{
         }
     }
 
+    //серия булевых методов возвращающих нужные величины
     public void setIsminus(boolean a){
         isminus = a;
     }

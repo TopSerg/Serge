@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 public class   Mouse1 extends Frame implements MouseMotionListener {
+    //задание необходимых переменных
     int xm1 = 0, ym1 = 0;
     public Mouse1(){
 

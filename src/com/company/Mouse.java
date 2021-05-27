@@ -6,9 +6,10 @@ import java.awt.event.*;
 
 public class Mouse extends Frame implements MouseListener{
 
+   //задание необходимых переменных
    int xm = 100, ym = 550, i = 0, j = 0, oldx, oldy, x,y, but = 0, xegg = 0, yegg = 0, xr, yr;
    boolean clik = false, clik1 = false;
-    Item item;
+   Item item;
 
    public Mouse(){
       item = null;
