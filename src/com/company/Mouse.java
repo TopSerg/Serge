@@ -4,6 +4,7 @@ package com.company;
 import java.awt.*;
 import java.awt.event.*;
 
+//слушатель нажатий мышки
 public class Mouse extends Frame implements MouseListener{
 
    //задание необходимых переменных
@@ -11,34 +12,42 @@ public class Mouse extends Frame implements MouseListener{
    boolean clik = false, clik1 = false;
    Item item;
 
+   //конструктор
    public Mouse(){
       item = null;
    }
+   //задание координат мышки
    public void setXY(int x, int y){
       this.xm = x;
       this.ym = y;
       oldy = y;
       oldx = x;
    }
+   //задание координат мышки еще одно
    public void Setxy(int x, int y){
       this.x = x;
       this.y = y;
    }
+   //добавление предмета
    public void Add(Item item){
       this.item = item;
    }
+   //удаление предмета
    public void Delete(){
       this.item = null;
    }
+   //имеется ли проект
    public boolean HasItem(){
       if (item == null){
          return false;
       }
       return true;
    }
+   //вывод предмета
    public Item getItem(){
       return item;
    }
+   //нажатие кнопки
    public void mousePressed(MouseEvent e)
    {
       String str = e.toString();
@@ -72,18 +81,23 @@ public class Mouse extends Frame implements MouseListener{
       }
       //System.out.println(xm + " " + ym);
    }
+   //не используется
    public void mouseReleased(MouseEvent e)
    {
    }
+   //не используется
    public void mouseClicked(MouseEvent e)
    {
    }
+   //не используется
    public void mouseExited(MouseEvent e)
    {
    }
+   //не используется
    public void mouseEntered(MouseEvent e)
    {
    }
+   //нажата ли мышка
    public boolean isClik(int a){
       switch (a) {
          case (1):
@@ -104,6 +118,7 @@ public class Mouse extends Frame implements MouseListener{
             return clik;
       }
    }
+   //вывод координаты х
    public int getx(int a){
       //System.out.println(clik + " 1");
       switch (a){
@@ -133,10 +148,7 @@ public class Mouse extends Frame implements MouseListener{
             return xm;
       }
    }
-
-   public int getXr(){
-      return xr;
-   }
+   //вывод координаты у
    public int gety(int a){
       switch (a){
          case(1):
@@ -167,6 +179,7 @@ public class Mouse extends Frame implements MouseListener{
 
    }
 
+   //вывод какая кнопка нажата
    public int getBut() {
       return but;
    }
